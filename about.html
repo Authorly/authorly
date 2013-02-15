@@ -1,0 +1,160 @@
+<!DOCTYPE HTML>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes"><!-- try to forces full-screen for apple devices -->
+
+	<meta http-equiv="Cache-Control" content="max-age=3600"/>
+	<meta http-equiv="Pragma" content="no-cache">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<title>Authorly – About Us</title>
+	<meta name="description" content="Authorly website">
+	<meta name="keywords" content="Add,your,site,keywords,here">
+	<meta name="rating" content="General" />
+	<link rel="icon" type="image/x-icon" href="images/favicon.ico">
+
+	<link rel="stylesheet" href="css/print.css" media="print">
+	<link rel="stylesheet" href="css/style.css" media="screen">
+	<!--[if gte IE 9]>
+	<style type="text/css">
+		.gradient {
+		filter: none;
+	}
+	</style>
+	<![endif]-->
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/modernizr.js"></script>
+	<!--[if lt IE 9]>
+	<script src="js/html5shiv.js"></script>
+	<![endif]-->
+	<script src="js/functions.js"></script>
+</head>
+<body>
+	<div id="vignette"></div>
+	<div id="frames">
+		<img class="first_frame" src="uploads/cb_placeholder.jpg">
+		<img class="second_frame" src="uploads/cb_placeholder.jpg">
+	</div>
+	<header>
+		<h1><a href="index.html">Authorly</a></h1>
+		<nav>
+			<a class="menubtn" href="#menu">Menu</a>
+			<ul>
+				<li><a class="menu_how" href="how-it-works.html">How it works</a></li>
+				<li><a class="menu_feat" href="features.html">Features</a></li>
+				<li><a class="menu_about" href="about.html">About Us</a></li>
+				<li><a class="menu_log_in" href="#log_in">Log In<br> or Sign Up</a></li>
+			</ul>
+			<span class="shadow"></span>
+			<span class="bookshelf shelf_top"></span>
+		</nav>
+	</header>
+	<div class="cover">
+		<div id="content">
+		<div class="pages pleft"></div>
+		<div class="pages pright"></div>
+		<div class="pagination pagleft">10</div>
+		<div class="pagination pagright">11</div>
+			<div class="column lcol">
+			<h1 class="superH">About Us</h1>
+			<article>
+				<p>
+					Authorly is a digital publishing platform that enables anyone to create interactive, cross-platform storybook apps. Using our intuitive web interface, authors can build beautiful, unique, and powerful native applications for Android and iOS smartphones and tablets.
+				</p>
+				<h2>Made by Authorly</h2>
+				<table id="authorly_made">
+					<tbody>
+						<tr>
+							<td>
+								Stranger in the Woods
+							</td>
+							<td>
+								Tea with Lady Sapphire
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<img src="uploads/sitwcover_small.jpg">
+							</td>
+							<td>
+								<img src="uploads/saphirebook_small.jpg">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="#starnger_app" class="app_button">App Store</a>
+								<a href="#starnger_play" class="play_button">Google Play</a>
+							</td>
+
+						</tr>
+						<tr class="row_separator"></tr>
+						<tr>
+							<td>
+								A Pirate's Quest
+							</td>
+							<td>
+								Plush and Blood: The Unstuffed
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<img src="uploads/QuestCover_small.jpg">
+							</td>
+							<td>
+								<img src="uploads/plush_and_blood.jpg">
+							</td>
+						</tr>
+
+					</tbody>
+				</table>
+				<span class="cleaner"></span>
+				</article>
+			</div>
+			<div class="column rcol">
+			<article>
+				<h2 class="superH">Contact Us</h2>
+				<p>
+					Authorly is a member of the <a href="http://www.startupminds.com" target="_blank">StartupMinds</a> and <a href="http://www.curiousminds.com" target="_blank">CuriousMinds</a> family, a Los Angeles-based accelerator and incubator. StartupMinds' and CuriousMinds' notable companies include Ringadoc, a health tech company recently backed by Peter Thiel's Founders Fund, and TeleSign, an internet security firm ranked #15 nationally on the 2011 Deloitte Technology Fast 500. We're always open for a chat with passionate writers, publishers, editors, and other professionals in the book industry.
+				</p>
+				<div class="contact_us">
+					<h3>Email:</h3>
+					<p><a href="mailto:info@authorly.com">info@authorly.com</a></p>
+					<h3>Address:</h3>
+					<p>8560 W. Sunset Boulevard<br>
+					10th Floor Penthouse<br>
+					West Hollywood, CA 90069</p>
+				</div>
+				<h2>Contact form</h2>
+				<form id="contact-form" name="contact-form" action="" method="post">
+					<label for="message"><em>Dear Authorly!</em></label>
+					<span class="invalid_form"></span>
+					<textarea id="message" name="message" placeholder="Write your message here…" required></textarea>
+					<p><em>Regards,</em></p>
+					<span class="invalid_form"></span>
+					<input type="text" id="name" name="name" placeholder="Your name" required>
+					<span class="invalid_form"></span>
+					<input type="email" id="email" name="email" placeholder="Your e-mail address" required>
+					<input type="text" id="valid" name="valid">
+					<input id="send_message" type="submit" value="Send">
+					<p class="invalid_text">Ooops! You didn't fill out name form</p>
+				</form>
+			 </article>
+			</div>
+			<div class="cleaner"></div>
+		</div>
+	</div>
+<footer>
+	<ul id="footer_nav">
+	<li><a href="about.html" target="_self">Contact</a>&nbsp;|&nbsp;</li>
+	<li><a href="faq.html" target="_self">FAQ</a>&nbsp;|&nbsp;</li>
+	<li><a href="tos.html" target="_self">Terms of Service</a>&nbsp;|&nbsp;</li>
+	<li><a href="privacy_policy.html" target="_self">Privacy Policy</a></li>
+	</ul>
+	<a class="home_icon" href="index.html">Back to top</a>
+</footer>
+</body>
+</html>
