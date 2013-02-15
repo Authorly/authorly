@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes"><!-- try to forces full-screen for apple devices -->
+
+	<meta http-equiv="Cache-Control" content="max-age=3600"/>
+	<meta http-equiv="Pragma" content="no-cache">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<title>Authorly – Login Page</title>
+	<meta name="description" content="Authorly website">
+	<meta name="keywords" content="Add,your,site,keywords,here">
+	<meta name="rating" content="General" />
+	<link rel="icon" type="image/x-icon" href="images/favicon.ico">
+
+	<link rel="stylesheet" href="css/print.css" media="print">
+	<link rel="stylesheet" href="css/style.css" media="screen">
+	<!--[if gte IE 9]>
+	<style type="text/css">
+		.gradient {
+		filter: none;
+	}
+	</style>
+	<![endif]-->
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/modernizr.js"></script>
+	<!--[if lt IE 9]>
+	<script src="js/html5shiv.js"></script>
+	<![endif]-->
+	<script src="js/functions.js"></script>
+	<style>
+		#log_in_div {height:700px;position: relative;}
+		.log_in_form {top:0;opacity: 1}
+		.close_login {display: none}
+	</style>
+</head>
+<body>
+	<div id="vignette"></div>
+	<div id="frames">
+		<img class="first_frame" src="uploads/cb_placeholder.jpg">
+		<img class="second_frame" src="uploads/cb_placeholder.jpg">
+	</div>
+	<header>
+		<h1><a href="index.html">Authorly</a></h1>
+		<nav>
+			<a class="menubtn" href="#menu">Menu</a>
+			<ul>
+				<li><a class="menu_how" href="how-it-works.html">How it works</a></li>
+				<li><a class="menu_feat" href="features.html">Features</a></li>
+				<li><a class="menu_about" href="about.html">About Us</a></li>
+				<li><a class="menu_log_in" href="#log_in">Log In<br> or Sign Up</a></li>
+			</ul>
+			<span class="shadow"></span>
+			<span class="bookshelf shelf_top"></span>
+		</nav>
+	</header>
+	<div id="log_in_div">
+		<div class="log_in_overlay"></div>
+		<div class="log_in_form">
+			<span class="close_btn close_login"></span>
+			<form class="sign_create_form sign_in">
+				<h2 class="superH">Login to your Authorly account</h2>
+				<p>Welcome back! Your storybook app awaits.</p>
+				<h2>Sign in</h2>
+				<label for="username">Username</label>
+				<input id="username" type="text" name="username"><br>
+				<label for="password">Password</label>
+				<input id="password" type="text" name="password"><br>
+				<input id="sign_in_btn" class="submit-button" type="submit" value="Sign in">
+				<p class="invalid_text">Please fill out all fields</p>
+			</form>
+					
+			<form class="sign_create_form">
+				<h2 class="superH">Create a new Authorly account</h2>
+				<p>Authorly is a simple way to make beautiful storybook applications for Android, iPhone, iPad, and Kindle. Try it for your storybook or comic book today.</p>
+				<div>
+					<label for="first_name">First name</label>
+					<input id="first_name" type="text" name="first_name"><br>
+				</div>
+				<div>
+					<label for="last_name">Last name</label>
+					<input id="last_name" type="text" name="last_name"><br>
+				</div>
+				<div>
+					<label for="username">Username</label>
+					<input id="username" type="text" name="username"><br>
+				</div>
+				<div>
+					<label for="password">Password</label>
+					<input id="password" type="text" name="password"><br>
+				</div>
+				<div>
+					<label for="confirm_password">Confirm password</label>
+					<input id="confirm_password" type="text" name="confirm_password"><br>
+				</div>
+				<div>
+					<label for="email">Email address</label>
+					<input id="email" type="email" name="email"><br>
+				</div>
+				<div>
+					<label for="phone">Phone number</label>
+					<input id="phone" type="number" name="phone"><br>
+				</div>
+
+				<input id="register_btn" class="submit-button" type="submit" value="Sign in">
+				<p class="invalid_text">Please fill out all fields</p>
+
+			</form>
+			<span class="cleaner"></span>
+		</div>
+</div>
+<footer>
+	<ul id="footer_nav">
+	<li><a href="about.html" target="_self">Contact</a>&nbsp;|&nbsp;</li>
+	<li><a href="faq.html" target="_self">FAQ</a>&nbsp;|&nbsp;</li>
+	<li><a href="tos.html" target="_self">Terms of Service</a>&nbsp;|&nbsp;</li>
+	<li><a href="privacy_policy.html" target="_self">Privacy Policy</a></li>
+	</ul>
+	<a class="home_icon" href="index.html">Back to top</a>
+</footer>
+</body>
+</html>
