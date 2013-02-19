@@ -863,7 +863,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#acbc00', end
 
 }
 
-.log_in_form, .log_in_overlay {
+.log_in_form, .log_in_overlay, .pop_up_box_wrapper {
 	-webkit-transition: opacity 0.5s;
 	-moz-transition: opacity 0.5s;
 	transition: opacity 0.5s;
@@ -997,6 +997,52 @@ min-width: 130px;
 	text-align: center;
 
 }
+
+/*coming soon pop up box*/
+.pop_up_box_wrapper {
+	position: fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height: 100%;
+	background: rgba(0,0,0,0.4);
+	z-index: 100;
+	opacity: 0;
+}
+
+.pop_up_box {
+	position:fixed;
+	top:50%;
+	left:50%;
+	margin: -6em 0 0 -125px;
+	padding: 3em 0;
+	width: 250px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background:url("../img/cont_bg.jpg") repeat scroll center top transparent;
+	box-shadow: 0 5px 40px rgba(0, 0, 0, 0.6);
+	-webkit-transition: -webkit-transform 0.5s, opacity 0.5s;
+	-moz-transition: -moz-transform 0.5s, opacity 0.5s;
+	transition: transform 0.5s, opacity 0.5s;
+	-webkit-transform:scale(0.8);
+	-moz-transform:scale(0.8);
+	transform:scale(0.8);
+	border: 1px solid #883b0b;
+}
+
+.pop_up_box p {
+	text-align: center;
+	font-size: 2em;
+	color:#893b0c;
+}
+
+.pop_up_show {
+	-webkit-transform:scale(1);
+	-moz-transform:scale(1);
+	transform:scale(1);
+}
+
 
 /*contact form*/
 #contact-form {position:relative;float:left; width:100%;margin-bottom: 3em;

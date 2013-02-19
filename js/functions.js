@@ -29,8 +29,29 @@ $(".menubtn").click(function(){
 
 
 
-//read button hover function
-$(".read_our_btn").hover(function(){
+//read button click hover function
+$(".read_our_btn").click(function(){
+	//pop up box wrapper with box and all other informations, along with behaviour (close btn)
+	var pop_up_coming = $('<div/>', {'class':'pop_up_box_wrapper'}).append(
+							$('<div/>', {'class': 'pop_up_box'}).append(
+						        $('<span/>', {'class': 'close_btn close_login','html':'Close pop up'}).click(function(){
+						        	$('.pop_up_box_wrapper').removeClass('fadeIn');
+						        	$('.pop_up_box').removeClass('pop_up_show').bind(transitionEnd, function(){
+						        		$(this).unbind(transitionEnd);
+						        		$('.pop_up_box_wrapper').remove();
+						        	});
+						        })
+						    ).append(
+						    	$('<p/>', {'html':'Coming soon!'})
+						    ));
+	//adding box wrapper variable (defined above) to body
+    $("body").append(pop_up_coming);
+    //fix for animation
+    setTimeout(function(){
+    	$('.pop_up_box').addClass('pop_up_show');
+    	$('.pop_up_box_wrapper').addClass('fadeIn');
+    },10);
+}).hover(function(){
 	$(this).addClass('read_our_focus');
 },function(){
 	$(this).removeClass('read_our_focus');
@@ -45,10 +66,11 @@ $(".menu_log_in").hover(function(){
 
 
 //fading in sign form function – loads login div from login.html
-$(".menu_log_in").click(function(){
+$(".menu_log_in, .try_button").click(function(){
 	$('body').append('<div class="log_in_overlay"></div>','<div class="log_in_div"></div>');
 	$('.log_in_div').load('login.html .log_in_form', function(){
-		$(".log_in_form").css({top:130}).addClass('fadeIn');
+		var form_height=$(window).scrollTop();
+		$(".log_in_form").css({top:form_height+50}).addClass('fadeIn');
 		$(".log_in_overlay").css({top:0}).addClass('fadeIn');
 		//after login.html elemenent has been loaded, add click functionality
 		//fading out sign in form function
