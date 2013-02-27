@@ -5,14 +5,25 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
 	<meta name="apple-mobile-web-app-capable" content="yes"><!-- try to forces full-screen for apple devices -->
 
-	<meta http-equiv="Cache-Control" content="max-age=3600"/>
+	<meta http-equiv="Cache-Control" content="max-age=3600">
 	<meta http-equiv="Pragma" content="no-cache">
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+
+	<link rel="shortcut icon" href="img/favicon.ico" >
+
+	<link rel="apple-touch-icon" sizes="144x144" href="img/apple-touch-icon-144x144.png">
+
+	<link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+
+	<link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+
+	<link rel="apple-touch-icon" href="img/apple-touch- icon.png">
+
 	<title>Authorly</title>
 	<meta name="description" content="Authorly website">
-	<meta name="keywords" content="Add,your,site,keywords,here">
+	<meta name="keywords" content="Add,your,site,keywords,here2">
 	<meta name="rating" content="General" />
 	<link rel="icon" type="image/x-icon" href="images/favicon.ico">
 
@@ -38,10 +49,6 @@
 </head>
 <body>
 	<div id="vignette"></div>
-	<div id="frames">
-		<img class="first_frame" src="uploads/cb_placeholder.jpg">
-		<img class="second_frame" src="uploads/cb_placeholder.jpg">
-	</div>
 	<header>
 		<h1><a href="index.html">Authorly</a></h1>
 		<nav>
@@ -50,14 +57,28 @@
 				<li><a class="menu_how" href="how-it-works.html">How it works</a></li>
 				<li><a class="menu_feat" href="features.html">Features</a></li>
 				<li><a class="menu_about" href="about.html">About Us</a></li>
-				<li><a class="menu_log_in" href="#log_in">Log In<br> or Sign Up</a></li>
+				<li><a class="menu_log_in" href="#log_in">Sign Up</a></li>
 			</ul>
-			<span class="shadow"></span>
-			<span class="bookshelf shelf_top"></span>
 		</nav>
+		<span class="shadow sh_top"></span>
+		<span class="bookshelf shelf_top"></span>
 	</header>
+	<div class="splash">
+		<span class="ipad sp_ipad">
+			<h2><span class="ipad_txt_big">your</span><br><span class="ipad_txt_app">app</span> here</h2>
+			<a href="#create_app" class="create_app_btn">Create App!</a> 
+			<span class="free_ribbon"></span>
+			<span class="ipad_glare"></span>
+		</span>
+		<span class="sp_kindle"></span>
+		<span class="sp_mobile"></span>
+		<span class="sp_book_opened"></span>
+		<span class="shadow th_shad"></span>
+		<span class="bookshelf shelf_bottom th_shelf"></span>	
+	</div>
 <div class="books_showcase">
 	<span class="book_btn">Click on a book!</span>
+
 
 	<ul class="books">
 		<li class="book1">
@@ -76,31 +97,10 @@
 			<img src="uploads/fsitw_cover3_small.jpg">
 		</li>
 	</ul>
-	<span class="shadow sc_shad"></span>
-	<span class="bookshelf shelf_bottom sc_shelf"></span>
-	<div class="invite_text">
-		<p><span class="to_left">Turn your</span>
-		<span class="to_left"><img src="images/storybook_ltrblocks.png" alt="storybook"></span>
-		<span class="to_left">into a fun,&nbsp;</span>
-		<span class="to_left">interactive&nbsp;</span>
-		<span class="to_left">
-			<span class="mobiles">
-				<span class="in_ipad">iPad</span>
-				<span class="in_andr_phone">Android Phone</span>
-				<span class="in_iphone">iPhone</span>
-				<span class="in_andr_tablet">Android Tablet</span>
-				<span class="in_ipod">iPod</span>
-				<span class="in_kindle">Kindle Fire</span>
-			</span>
-		</span>
-		<span class="to_left">app.&nbsp;</span>
-		<span class="to_left">No coding&nbsp;</span>
-		<span class="to_left">or developers required.</span>
-	</div>
 	<span class="shadow th_shad"></span>
 	<span class="bookshelf shelf_bottom th_shelf"></span>
 </div>
-	<div id="ipad">
+	<div class="ipad ipad_showcase">
 		<div id="video" style="width: 580px; height: 385px;"></div>
 		<a class="close_btn play_btn" href="#video_play">Play video</a>
 		<span class="ipad_glare"></span>

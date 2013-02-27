@@ -5,15 +5,15 @@ var transitionEnd = "transitionend webkitTransitionEnd oTransitionEnd MSTransiti
 //if theres any video to be played, use popcorn.js
 if ($('#video').length>0) {
 	var example = Popcorn.vimeo(
-	         '#video',
-	         'http://vimeo.com/18167652');
+			'#video',
+			'http://vimeo.com/18167652');
 
 
-	$('#ipad').append('<span class="video_bg"></span>')
+	$('.ipad_showcase').append('<span class="video_bg"></span>');
 
 	$('.play_btn').click(function(){
-		 example.play();
-		 $(".video_bg, .play_btn").css({display:'none'});
+		example.play();
+		$(".video_bg, .play_btn").css({display:'none'});
 
 	}).hover(function(){
 		$(".video_bg").text("Play video");
@@ -25,32 +25,43 @@ if ($('#video').length>0) {
 
 $(".menubtn").click(function(){
 	$("nav ul").toggleClass('slideDown');
+	$(this).addClass('menu_pull_down').bind(transitionEnd,function(){
+		$(this).unbind(transitionEnd).removeClass('menu_pull_down');
+	});
+}).hover(function(){
+	$(this).addClass('menu_pull_down');
+},function(){
+	$(this).removeClass('menu_pull_down');
 });
 
+//pop up info along with string text arg
+function pop_up_info(str_info) {
+	//pop up box wrapper with box and all other informations, along with behaviour (close btn)
+	var pop_up_coming = $('<div/>', {'class':'pop_up_box_wrapper'}).append(
+							$('<div/>', {'class': 'pop_up_box'}).append(
+								$('<span/>', {'class': 'close_btn close_login','html':'Close pop up'}).click(function(){
+									$('.pop_up_box_wrapper').removeClass('fadeIn');
+									$('.pop_up_box').removeClass('pop_up_show').bind(transitionEnd, function(){
+										$(this).unbind(transitionEnd);
+										$('.pop_up_box_wrapper').remove();
+										});
+									})
+							).append(
+								$('<p/>', {'html': str_info})
+							));
+	//adding box wrapper variable (defined above) to body
+	$("body").append(pop_up_coming);
+	//fix for animation
+	setTimeout(function(){
+		$('.pop_up_box').addClass('pop_up_show');
+		$('.pop_up_box_wrapper').addClass('fadeIn');
+	},10);
+}
 
 
 //read button click hover function
 $(".read_our_btn").click(function(){
-	//pop up box wrapper with box and all other informations, along with behaviour (close btn)
-	var pop_up_coming = $('<div/>', {'class':'pop_up_box_wrapper'}).append(
-							$('<div/>', {'class': 'pop_up_box'}).append(
-						        $('<span/>', {'class': 'close_btn close_login','html':'Close pop up'}).click(function(){
-						        	$('.pop_up_box_wrapper').removeClass('fadeIn');
-						        	$('.pop_up_box').removeClass('pop_up_show').bind(transitionEnd, function(){
-						        		$(this).unbind(transitionEnd);
-						        		$('.pop_up_box_wrapper').remove();
-						        	});
-						        })
-						    ).append(
-						    	$('<p/>', {'html':'Coming soon!'})
-						    ));
-	//adding box wrapper variable (defined above) to body
-    $("body").append(pop_up_coming);
-    //fix for animation
-    setTimeout(function(){
-    	$('.pop_up_box').addClass('pop_up_show');
-    	$('.pop_up_box_wrapper').addClass('fadeIn');
-    },10);
+	pop_up_info('Coming soon!');
 }).hover(function(){
 	$(this).addClass('read_our_focus');
 },function(){
@@ -66,7 +77,13 @@ $(".menu_log_in").hover(function(){
 
 
 //fading in sign form function – loads login div from login.html
-$(".menu_log_in, .try_button").click(function(){
+$(".menu_log_in, .try_button, .create_app_btn").click(function(){
+
+	//temporaily information
+	pop_up_info('Registration will be available on 27th of&nbsp;February');
+
+	//uncomment if login functionality is on
+	/*
 	$('body').append('<div class="log_in_overlay"></div>','<div class="log_in_div"></div>');
 	$('.log_in_div').load('login.html .log_in_form', function(){
 		var form_height=$(window).scrollTop();
@@ -83,20 +100,8 @@ $(".menu_log_in, .try_button").click(function(){
 		});
 		validateLogin();
 	});
+	*/
 });
-
-//mobile devices showcase function
-//adds fadein to first image during loading
-$(".mobiles span").first().addClass('mobiles_fade_in');
-setInterval(function(){
-	//if theres any fadeIn class, remove it and pass it to next image
-	$(".mobiles .mobiles_fade_in").removeClass('mobiles_fade_in').next().addClass('mobiles_fade_in');
-	//if there's the last img in div, it will remove fadeIn class,
-	//so we have to add again fadein class to first image
-	if ($(".mobiles_fade_in").length<1) {
-		$(".mobiles span").first().addClass('mobiles_fade_in');
-	}
-}, 4000);
 
 //faq simple navigation
 $(".faq li").click(function(){
@@ -107,7 +112,7 @@ $(".faq li").click(function(){
 });
 
 
-var invalid_col = "#d6220a", valid_col = "#468c13" //determines color of info text
+var invalid_col = "#d6220a", valid_col = "#468c13"; //determines color of info text
 
 //contact form validation function
 $("#send_message").click(function(e){
@@ -125,13 +130,13 @@ $("#send_message").click(function(e){
 		}
 	});
 	if (!valid) {
-		var fields_text = " field"
-		which_field[which_field.length-1]= which_field[which_field.length-1].slice(0,-2)
+		var fields_text = " field";
+		which_field[which_field.length-1]= which_field[which_field.length-1].slice(0,-2);
 		//compose text of invalid form names
 		if (which_field.length>1) {
-			which_field[which_field.length-2]= which_field[which_field.length-2].slice(0,-2)
+			which_field[which_field.length-2]= which_field[which_field.length-2].slice(0,-2);
 			which_field.splice(which_field.length-1, 0, "and");
-			fields_text = " fields"
+			fields_text = " fields";
 		}
 		var err_text = "";
 		//compose array of empty fields names into error text string
@@ -172,7 +177,7 @@ function validateLogin() {
 	});
 }
 //ipad closing button - for book showcase
-$("#ipad .close_ipad").click(function() {
+$(".ipad_showcase .close_ipad").click(function() {
 	returnBooks();
 	closeShowcase();
 });
@@ -198,7 +203,7 @@ function closeShowcase() {
 	//ends book showcase by fading out iPad
 	example.pause();
 	$(".book_showcase_overlay").removeClass('fadeIn');
-	$("#ipad").removeClass('fadeIn').bind(transitionEnd, function(){
+	$(".ipad_showcase").removeClass('fadeIn').bind(transitionEnd, function(){
 		//hides invisible ipad in order to prevent clicking on it (display none didn't work)
 		$(this).css({top:'-999%'}).unbind(transitionEnd);
 		$(".book_showcase_overlay").remove();
@@ -209,14 +214,15 @@ function closeShowcase() {
 $(".books li").click(function(){
 
 	if ($(".book_showcase_overlay").length < 1){
+		var scrollTop = $(window).scrollTop();
 		//initializes by detecting if background for books was initated
-		$("#ipad").css({top:240}).addClass("fadeIn");
+		$(".ipad_showcase").css({top:scrollTop+50}).addClass("fadeIn");
 		//creates invisible background (if there isn't any)
 		var books_shwcase = $("<span />",{class: 'book_showcase_overlay'}).click(function(){
 			returnBooks();
 			closeShowcase();
 		});
-		$('#ipad').before(books_shwcase);
+		$('.ipad_showcase').before(books_shwcase);
 		//animation fix
 		setTimeout(function(){
 			$(".book_showcase_overlay").addClass("fadeIn");
@@ -249,15 +255,15 @@ $(".books li").click(function(){
 	//pulls out book
 	book.addClass('pullout');
 	
-	if (!book.hasClass('book3') && $('#ipad p').length<1) {
-		$('#ipad').append('<p>Coming soon. Play the demo for Stranger in the Woods</p>');
+	if (!book.hasClass('book3') && $('.ipad_showcase p').length<1) {
+		$('.ipad_showcase').append('<p>Coming soon. Play the demo for Stranger in the Woods</p>');
 	}
 	else if (book.hasClass('book3'))  {
-		$('#ipad p').remove();
+		$('.ipad_showcase p').remove();
 	}
 
 	setTimeout(function(){
 		book.css({zIndex:50}).addClass("focus");
 	}, 700);
-})
+});
 });
