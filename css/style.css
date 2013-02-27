@@ -1040,6 +1040,10 @@ min-width: 130px;
 	line-height: 1.3em;
 }
 
+.faq p {
+	padding: 0 0 1.2em 0;
+}
+
 .faq li {
 	text-align: center;
 	list-style: none;
