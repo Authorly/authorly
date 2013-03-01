@@ -1,14 +1,26 @@
 authorly
 ========
 
-HTML version of Authorly.com
+Sinatra version of Authorly.com
 
 Structure
 ---------
-css, js – self-explanatory; all JavaScript is based on jQuery
-img – images used in css
-images –  images used in content with img tag (icons, images in "features", etc)
-uploads – all book covers
+`app/app.rb` - Sinatra application.
+`app/views/index.erb` - Index page of the application.
+`app/public` - All the static files(CSS and Javascript) and other pages.
+    css, js – self-explanatory; all JavaScript is based on jQuery
+    img – images used in css
+    images –  images used in content with img tag (icons, images in "features", etc)
+    uploads – all book covers
+
+Starting up Application
+---------
+1. Install all the gems
+  `bundle install`
+2. Migrate the database
+  `bundle exec rake db:migrate RAILS_ENV=production`
+3. Start the server
+   `ruby app/app.rb RAILS_ENV=production &`
 
 Submit buttons
 --------------
