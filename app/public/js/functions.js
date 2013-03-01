@@ -79,28 +79,25 @@ $(".menu_log_in").hover(function(){
 //fading in sign form function – loads login div from login.html
 $(".menu_log_in, .try_button, .create_app_btn").click(function(){
 
-	//temporaily information
-	pop_up_info('Registration will be available on 27th of&nbsp;February');
-
 	//uncomment if login functionality is on
-	/*
-	$('body').append('<div class="log_in_overlay"></div>','<div class="log_in_div"></div>');
-	$('.log_in_div').load('login.html .log_in_form', function(){
-		var form_height=$(window).scrollTop();
-		$(".log_in_form").css({top:form_height+50}).addClass('fadeIn');
-		$(".log_in_overlay").css({top:0}).addClass('fadeIn');
-		//after login.html elemenent has been loaded, add click functionality
-		//fading out sign in form function
-		$(".log_in_form .close_login, .log_in_overlay").click(function() {
-			$(".log_in_form").removeAttr('style').removeClass('fadeIn');
-			$(".log_in_overlay").removeAttr('style').removeClass('fadeIn');
-			setTimeout(function(){
-				$('.log_in_overlay, .log_in_div').remove();
-			},600);
-		});
-		validateLogin();
-	});
-	*/
+  
+  $('body').append('<div class="log_in_overlay"></div>','<div class="log_in_div"></div>');
+  $('.log_in_div').load('login.html .log_in_form', function(){
+    var form_height=$(window).scrollTop();
+    $(".log_in_form").css({top:form_height+50}).addClass('fadeIn');
+    $(".log_in_overlay").css({top:0}).addClass('fadeIn');
+    //after login.html elemenent has been loaded, add click functionality
+    //fading out sign in form function
+    $(".log_in_form .close_login, .log_in_overlay").click(function() {
+      $(".log_in_form").removeAttr('style').removeClass('fadeIn');
+      $(".log_in_overlay").removeAttr('style').removeClass('fadeIn');
+      setTimeout(function(){
+        $('.log_in_overlay, .log_in_div').remove();
+      },600);
+    });
+    validateLogin();
+  });
+  
 });
 
 //faq simple navigation
@@ -156,7 +153,7 @@ $("#send_message").click(function(e){
 function validateLogin() {
 	//sign in/register validation function
 	$('#sign_in_btn, #register_btn').click(function(e){
-		e.preventDefault();
+    e.preventDefault();
 		var form_parent = $(this).parent();
 		var valid = true;
 		//resets invalid text
@@ -170,10 +167,10 @@ function validateLogin() {
 			form_parent.find('.invalid_text').css({color:invalid_col}).text("Please fill out all fields").addClass("fadeIn");
 			return false;
 		}
-
-
-		//if verification is okay, fire away! ajax or anything
-
+    $.post('/users', form_parent.serialize(), function (data) {
+      $('.close_login').trigger('click')
+      pop_up_info("Thank you!")
+    });
 	});
 }
 //ipad closing button - for book showcase
