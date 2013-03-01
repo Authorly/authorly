@@ -14,7 +14,7 @@ end
 
 desc 'loads up the environment'
 task :environment do
-  ENV['RAILS_ENV'] ||= 'development'
-  config = YAML::load(ERB.new(IO.read(File.join(File.dirname(__FILE__), 'db', 'config.yml'))).result)[ENV['RAILS_ENV']].symbolize_keys
+  ENV['RACK_ENV'] ||= 'development'
+  config = YAML::load(ERB.new(IO.read(File.join(File.dirname(__FILE__), 'db', 'config.yml'))).result)[ENV['RACK_ENV']].symbolize_keys
   ActiveRecord::Base.establish_connection(config)
 end
