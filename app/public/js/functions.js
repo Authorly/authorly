@@ -6,7 +6,7 @@ var transitionEnd = "transitionend webkitTransitionEnd oTransitionEnd MSTransiti
 if ($('#video').length>0) {
 	var example = Popcorn.vimeo(
 			'#video',
-			'http://vimeo.com/18167652');
+			'http://vimeo.com/60792270');
 
 
 	$('.ipad_showcase').append('<span class="video_bg"></span>');
