@@ -842,6 +842,10 @@ h2.ornament_ending {
 	margin-bottom: 0.8em;
 }
 
+.ornament_ending p {
+	text-align: center;
+}
+
 .lcol {margin-left:5%;padding-right: 5%}
 .rcol {margin-left: 5%}
 /*.lcol article {margin-right:20%}
