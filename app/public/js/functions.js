@@ -169,7 +169,7 @@ function validateLogin() {
 		}
     $.post('/users', form_parent.serialize(), function (data) {
       $('.close_login').trigger('click')
-      pop_up_info("Thank you!")
+      pop_up_info("Thank you for Signing Up!<br>Your Username &amp; Password will be emailed as soon as we are ready for you.")
     });
 	});
 }
