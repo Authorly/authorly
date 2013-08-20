@@ -20,7 +20,7 @@ Starting up Application
 2. Migrate the database
   `bundle exec rake db:migrate RAILS_ENV=production`
 3. Start the server
-   `ruby app/app.rb RAILS_ENV=production &`
+   `ruby app/app.rb RACK_ENV=production &`
 
 Submit buttons
 --------------
