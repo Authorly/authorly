@@ -25,8 +25,13 @@ class User < ActiveRecord::Base
       :id            => 'dae12d02db', # Mailchimp list id for "Authorly New User Signup" list
       :email_address => self.email,
       :double_optin  => false,
-      :send_welcome  => false
+      :send_welcome  => false,
     }
+
+    if self.promo.to_s.match(/\A\d\d\d\w\w\w\Z/) # If promo code matches 'XXXYYY' Where X is a letter and Y is a digit
+      info[:merge_vars] = { 'PCODE' => self.promo.to_s }
+    end
+
     # Check out documentation for listSubscribe:
     # http://apidocs.mailchimp.com/api/1.3/listsubscribe.func.php
     begin
