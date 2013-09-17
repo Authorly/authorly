@@ -3,17 +3,17 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
-	<meta name="apple-mobile-web-app-capable" content="yes"><!-- try to forces full-screen for apple devices -->
+	<meta name="apple-mobile-web-app-capable" content="yes"><!-- try to force full-screen for apple devices -->
 
-	<meta http-equiv="Cache-Control" content="max-age=3600"/>
+	<meta http-equiv="Cache-Control" content="max-age=3600">
 	<meta http-equiv="Pragma" content="no-cache">
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-	<title>Authorly – Turns Books Into Apps | Login Page</title>
+	<title>Authorly – Turns Books Into Apps | Terms of Service</title>
 	<meta name="description" content="Turn your children's book into a beautiful, interactive app. Try it for free now.">
-	<meta name="keywords" content="app builder, children's books, sign up, login, create account">
-	<meta name="rating" content="General" />
+	<meta name="keywords" content="app builder, children's books, terms of service">
+	<meta name="rating" content="General">
 	<link rel="icon" type="image/x-icon" href="images/favicon.ico">
 
 	<link rel="stylesheet" href="css/print.css" media="print">
@@ -25,18 +25,6 @@
 	}
 	</style>
 	<![endif]-->
-
-	<script src="js/jquery.min.js"></script>
-	<script src="js/modernizr.js"></script>
-	<!--[if lt IE 9]>
-	<script src="js/html5shiv.js"></script>
-	<![endif]-->
-	<script src="js/functions.js"></script>
-	<style>
-		#log_in_div {height:700px;position: relative;}
-		.log_in_form {top:0;opacity: 1}
-		.close_login {display: none}
-	</style>
 </head>
 <body>
 	<div id="vignette"></div>
@@ -48,46 +36,17 @@
 				<li><a class="menu_how" href="how-it-works.html">How it works</a></li>
 				<li><a class="menu_feat" href="features.html">Features</a></li>
 				<li><a class="menu_about" href="about.html">About Us</a></li>
-				<li><a class="menu_log_in" href="#log_in">Sign Up</a></li>
+				<li><a class="menu_log_in" href="signup.html">Sign Up</a></li>
 			</ul>
 		</nav>
 		<span class="shadow sh_top"></span>
 		<span class="bookshelf shelf_top"></span>
 	</header>
-	<div id="log_in_div">
-		<div class="log_in_overlay"></div>
-		<div class="log_in_form">
-			<span class="close_btn close_login"></span>
-			<form class="sign_create_form sign_in">
-				<h2 class="superH">Sign in</h2>
-				<p>Welcome back! Your storybook app awaits.</p>
-				<label for="username">Username</label>
-				<input id="username" type="text" name="username"><br>
-				<label for="password">Password</label>
-				<input id="password" type="password" name="password"><br>
-				<input id="sign_in_btn" class="submit-button" type="submit" value="Sign in">
-				<p class="invalid_text">Please fill out all fields</p>
-			</form>
-					
-			<form class="sign_create_form">
-				<h2 class="superH">Authorly Beta</h2>
-        <p>Turn your book into an app.<br>Sign up for beta access</p>
-				<div>
-					<label for="email">Email address</label>
-					<input id="email" type="email" name="user[email]"><br>
-				</div>
-				<div>
-					<label for="promo">Promo Code</label>
-					<input id="promo" type="text" name="user[promo]"><br>
-				</div>
+	<section id="one_page">
 
-				<input id="register_btn" class="submit-button" type="submit" value="Register">
-				<p class="invalid_text">Please fill out all fields</p>
+		<iframe id="signup-form" src="http://www.formstack.com/forms/?1578672-zPyKHtZnrP" title="Authorly Beta Signup Online Form" frameborder="0" scrolling="no"></iframe>
 
-			</form>
-			<span class="cleaner"></span>
-		</div>
-</div>
+	</section>
 <footer>
 	<ul id="footer_nav">
 	<li><a href="blog/index.php" target="_self">Blog</a>&nbsp;|&nbsp;</li>
@@ -98,6 +57,14 @@
 	</ul>
 	<a class="home_icon" href="index.html">Back to top</a>
 </footer>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/modernizr.js"></script>
+	<!--[if lt IE 9]>
+	<script src="js/html5shiv.js"></script>
+	<![endif]-->
+	<script src="js/functions.js"></script>
+
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
