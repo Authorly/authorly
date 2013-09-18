@@ -77,7 +77,7 @@ $(".menu_log_in").hover(function(){
 
 
 //fading in sign form function – loads login div from login.html
-$(".menu_log_in, .try_button, .create_app_btn").click(function(){
+/*$(".menu_log_in, .try_button, .create_app_btn").click(function(){
 
 	//uncomment if login functionality is on
   
@@ -98,7 +98,7 @@ $(".menu_log_in, .try_button, .create_app_btn").click(function(){
     validateLogin();
   });
   
-});
+});*/
 
 //faq simple navigation
 $(".faq li").click(function(){
