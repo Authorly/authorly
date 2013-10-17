@@ -43,9 +43,21 @@
 		<span class="bookshelf shelf_top"></span>
 	</header>
 	<section id="one_page">
-
-		<iframe id="signup-form" src="http://www.formstack.com/forms/?1578672-zPyKHtZnrP" title="Authorly Beta Signup Online Form" frameborder="0" scrolling="no"></iframe>
-
+		<h2 class="superH">Request an Invitation</h2>
+		<form id="signup-form" name="contact-form" action="/users" method="post">
+			<p>Dear Authorly,</p>
+			<div class="letter-line">
+				<label for="name">My name is</label>
+				<input type="text" id="name" name="name" required>
+				<p class="punctuation">,</p>
+				<label for="email">and my email address is</label>
+				<input type="email" id="email" name="email" required>
+				<p class="punctuation">.</p>
+				<p>Please let me know when Authorly is ready for me.</p>
+			</div>
+			<input id="send_message" type="submit" value="Send">
+			<p class="invalid_text">Ooops! You didn't fill out name form</p>
+		</form>
 	</section>
 <footer>
 	<ul id="footer_nav">
