@@ -117,7 +117,7 @@ $("#send_message").click(function(e){
 	$(".invalid_text, .invalid_form").removeClass("fadeIn").removeAttr("style");
 	var valid = true;
 	var which_field = [];
-	$("#contact-form input, #contact-form textarea").not("#valid").each(function(){
+	$("#contact-form input, #contact-form textarea, #signup-form input").not("#valid").each(function(){
 		//if value is empty, form isn't valid. Fade in invalid icon and add to "which_field" var name of field
 		if (!$(this).val()) {
 			valid = false;
@@ -127,20 +127,18 @@ $("#send_message").click(function(e){
 		}
 	});
 	if (!valid) {
-		var fields_text = " field";
 		which_field[which_field.length-1]= which_field[which_field.length-1].slice(0,-2);
 		//compose text of invalid form names
 		if (which_field.length>1) {
 			which_field[which_field.length-2]= which_field[which_field.length-2].slice(0,-2);
 			which_field.splice(which_field.length-1, 0, "and");
-			fields_text = " fields";
 		}
 		var err_text = "";
 		//compose array of empty fields names into error text string
 		for (var i=0; i < which_field.length; i++) {
 			err_text += which_field[i]+" ";
 		}
-		$(".invalid_text").css({color:invalid_col}).text("Oops! You left "+err_text+fields_text+" blank.").addClass("fadeIn");
+		$(".invalid_text").css({color:invalid_col}).text("Oops! You left these fields blank: "+err_text).addClass("fadeIn");
 		return false;
 	}
 
