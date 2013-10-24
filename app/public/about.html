@@ -125,7 +125,7 @@
 					West Hollywood, CA 90069</p>
 				</div>
 				<h2>Contact Form</h2>
-				<form id="contact-form" name="contact-form" action="/users" method="post">
+				<form class="contact-form" name="contact-form" action="/users" method="post">
 					<label for="message"><em>Dear Authorly!</em></label>
 					<span class="invalid_form"></span>
 					<textarea id="message" name="message" placeholder="Write your message here…" required></textarea>
@@ -136,7 +136,8 @@
 					<input type="email" id="email" name="email" placeholder="Your e-mail address" required>
 					<input type="text" id="valid" name="valid">
 					<input id="send_message" type="submit" value="Send">
-					<p class="invalid_text">Ooops! You didn't fill out name form</p>
+					<p id="invalid_text"></p>
+					<p id="invalid_email"></p>
 				</form>
 			 </article>
 			</div>

@@ -5,7 +5,7 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
 h1, h2, h3, h4, h5, h6 {font-family:"Times New Roman",Georgia,Serif; font-style: italic; color:#893b0c; text-align:center;font-weight:100}
 h2 {font-size:2.18em; margin:1em 0}
 h3 {font-size:1.5em; margin:1em 0;}
-p, #contact-form, #signup-form, #one_page ul, #one_page ol {font-size:1.2em; line-height:1.5em; color:#6d6666}
+p, .contact-form, .signup-form, #one_page ul, #one_page ol {font-size:1.2em; line-height:1.5em; color:#6d6666}
 .superH {
 
 	font-size:3.3em;
@@ -960,7 +960,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#acbc00', end
 
 }
 
-.log_in_form .invalid_text {
+.log_in_form #invalid_text {
 	width:100%;
 	text-align: center;
 }
@@ -1119,8 +1119,8 @@ min-width: 130px;
 
 
 /*contact form*/
-#contact-form,
-#signup-form {
+.contact-form,
+.signup-form {
 	position: relative;
 	margin-bottom: 3em;
 	background: url(../img/form_bg.jpg) repeat;
@@ -1130,18 +1130,18 @@ min-width: 130px;
 }
 
 
-#signup-form {
+.signup-form {
 	display: table;
-	margin: 0 auto;
+	margin: 3em auto;
 	width: 60%;
 	padding: 3em 0 0 0;
 	position: relative;
 	z-index: -1;
 }
 
-#contact-form {float:left;width:100%;}
+.contact-form {float:left;width:100%;}
 
-#contact-form::after {
+.contact-form::after {
 	width:100%; height:100%; position:absolute; display:block; content:''; background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZmZmZmZmIiBzdG9wLW9wYWNpdHk9IjAuNDEiLz4KICAgIDxzdG9wIG9mZnNldD0iMSUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMC40MSIvPgogICAgPHN0b3Agb2Zmc2V0PSI3NSUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMCIvPgogICAgPHN0b3Agb2Zmc2V0PSI5NiUiIHN0b3AtY29sb3I9IiNmZmZmZmYiIHN0b3Atb3BhY2l0eT0iMC42OCIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZmZmZmZmIiBzdG9wLW9wYWNpdHk9IjAuNjgiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
 	background: -moz-linear-gradient(-45deg,  rgba(255,255,255,0.41) 0%, rgba(255,255,255,0.41) 1%, rgba(255,255,255,0) 75%, rgba(255,255,255,0.68) 96%, rgba(255,255,255,0.68) 100%);
 	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(255,255,255,0.41)), color-stop(1%,rgba(255,255,255,0.41)), color-stop(75%,rgba(255,255,255,0)), color-stop(96%,rgba(255,255,255,0.68)), color-stop(100%,rgba(255,255,255,0.68)));
@@ -1153,7 +1153,7 @@ min-width: 130px;
 	border-top:1px solid #fdfbf3;
 }
 
-#signup-form::after {
+.signup-form::after {
 	width:100%; height:100%; position:absolute; top: 0; display:block; content:''; 
 	background: -moz-linear-gradient(-45deg,  rgba(255,255,255,0.41) 0%, rgba(255,255,255,0.41) 1%, rgba(255,255,255,0) 75%, rgba(255,255,255,0.68) 96%, rgba(255,255,255,0.68) 100%);
 	background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,rgba(255,255,255,0.41)), color-stop(1%,rgba(255,255,255,0.41)), color-stop(75%,rgba(255,255,255,0)), color-stop(96%,rgba(255,255,255,0.68)), color-stop(100%,rgba(255,255,255,0.68)));
@@ -1166,14 +1166,14 @@ min-width: 130px;
 	z-index:-1;
 }
 
-#contact-form::before,
-#signup-form::before {width:100%; height:13px; display:block;content: '';position:absolute;bottom:-14px;right:-3px;background: url(../img/sprites.png) no-repeat right bottom;}
+.contact-form::before,
+.signup-form::before {width:100%; height:13px; display:block;content: '';position:absolute;bottom:-14px;right:-3px;background: url(../img/sprites.png) no-repeat right bottom;}
 
-#contact-form *,
-#signup-form p,
-#signup-form input[type="text"],
-#signup-form input[type="email"],
-#signup-form label {
+.contact-form *,
+.signup-form p,
+.signup-form input[type="text"],
+.signup-form input[type="email"],
+.signup-form label {
 	position:relative;
 	z-index:4;
 	float:left;
@@ -1185,41 +1185,41 @@ min-width: 130px;
 	font-size: 1.3em;
 }
 
-.sign_create_form input, #contact-form textarea, #contact-form input[type=text], #contact-form input[type=email],
-#signup-form input[type=text], #signup-form input[type=email] {background:url(../img/form_line.png) repeat center top;font-size:1em;font-family: Georgia,"Nimbus Roman No9 L",serif;outline:0;}
+.sign_create_form input, .contact-form textarea, .contact-form input[type=text], .contact-form input[type=email],
+.signup-form input[type=text], .signup-form input[type=email] {background:url(../img/form_line.png) repeat center top;font-size:1em;font-family: Georgia,"Nimbus Roman No9 L",serif;outline:0;}
 
-#contact-form textarea {width:85%; height:15em; resize:none; margin-left:8px; padding-top: 0.5em;line-height: 2em}
-#contact-form p, #contact-form label {margin:1em 0 0.5em 40px;}
+.contact-form textarea {width:85%; height:15em; resize:none; margin-left:8px; padding-top: 0.5em;line-height: 2em}
+.contact-form p, .contact-form label {margin:1em 0 0.5em 40px;}
 
-#signup-form p:not(.punctuation) {
-	margin: 0.5em 0 0.5em 40px;
+.signup-form p:not(.punctuation) {
+	margin: 0.5em 0 0.5em 2em;
 }
 
 .punctuation {
 	margin: 0.5em 0;
 }
 
-#signup-form label {margin: -0.5em 0 0.5em 40px; font-size: 1.3em; width: auto;}
+.signup-form label {margin: -0.5em 0 0.5em 40px; font-size: 1.3em; width: auto;}
 
-#contact-form input[type=text], #contact-form input[type=email],
-#signup-form input[type=text], #signup-form input[type=email] {
+.contact-form input[type=text], .contact-form input[type=email],
+.signup-form input[type=text], .signup-form input[type=email] {
 	height:33px;
 	margin:0 0 0.5em 8px;
 	padding-top: 0.4em
 }
 
-#contact-form input[type=text], #contact-form input[type=email] {
+.contact-form input[type=text], .contact-form input[type=email] {
 	width:70%;
 }
 
-#signup-form input[type=text], #signup-form input[type=email] {
+.signup-form input[type=text], .signup-form input[type=email] {
 	width: 42%;
 	margin: 0 0.5em;
 }
 
 #send_message {cursor:pointer;width:139px; height:77px;float:right;margin-right:-18px; background:url(../img/sprites.png) no-repeat 0 -110px;text-indent: -999em; border: 0;}
 
-.invalid_form, .invalid_text {
+.invalid_form, #invalid_text, #invalid_email {
 	-webkit-transition: opacity 0.5s;
 	-moz-transition: opacity 0.5s;
 	transition: opacity 0.5s;
@@ -1243,9 +1243,11 @@ min-width: 130px;
 	float: left;
 }
 
-.invalid_text {
+#invalid_text, #invalid_email {
 	opacity: 0;
 	width: 85%;
+	margin: 0 0 1em 2.5em;
+	font-size: 1em;
 }
 #valid {display:none;}
 
@@ -1378,7 +1380,7 @@ and (max-width : 1000px) {
 }
 
 @media only screen and (max-width: 1020px) {
-	#signup-form {
+	.signup-form {
 		width: auto;
 	}
 }
@@ -1458,11 +1460,11 @@ and (max-width : 870px) {
 		transform:translateY(0);
 	}
 	
-	#contact-form  textarea,
-	#contact-form input[type="text"],
-	#contact-form input[type="email"],
-	#contact-form label,
-	#contact-form p{
+	.contact-form  textarea,
+	.contact-form input[type="text"],
+	.contact-form input[type="email"],
+	.contact-form label,
+	.contact-form p{
 	margin:0 7%;
 	}
 	.invalid_form {padding-right:30%}

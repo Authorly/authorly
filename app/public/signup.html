@@ -36,7 +36,6 @@
 				<li><a class="menu_how" href="how-it-works.html">How it works</a></li>
 				<li><a class="menu_feat" href="features.html">Features</a></li>
 				<li><a class="menu_about" href="about.html">About Us</a></li>
-				<li><a class="menu_log_in" href="signup.html">Sign Up</a></li>
 			</ul>
 		</nav>
 		<span class="shadow sh_top"></span>
@@ -44,7 +43,7 @@
 	</header>
 	<section id="one_page">
 		<h2 class="superH">Request an Invitation</h2>
-		<form id="signup-form" name="contact-form" action="/users" method="post">
+		<form class="signup-form" name="contact-form" action="/users" method="post">
 			<p>Dear Authorly,</p>
 			<div class="letter-line">
 				<label for="name">My name is</label>
@@ -53,10 +52,11 @@
 				<label for="email">and my email address is</label>
 				<input type="email" id="email" name="email" required>
 				<p class="punctuation">.</p>
-				<p>Please let me know when Authorly is ready for me.</p>
+				<p>Please let me know when your app builder is ready.</p>
 			</div>
 			<input id="send_message" type="submit" value="Send">
-			<p class="invalid_text">Ooops! You didn't fill out name form</p>
+			<p id="invalid_text"></p>
+			<p id="invalid_email"></p>
 		</form>
 	</section>
 <footer>
