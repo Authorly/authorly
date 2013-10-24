@@ -111,34 +111,51 @@ $(".faq li").click(function(){
 
 var invalid_col = "#d6220a", valid_col = "#468c13"; //determines color of info text
 
+function validateEmail(email) {
+	return /^([A-Za-z0-9\.\-_]+)@([A-Za-z0-9\-_]+)\.([A-Za-z]+)$/.test(email);
+}
+
 //contact form validation function
 $("#send_message").click(function(e){
 	e.preventDefault();
-	$(".invalid_text, .invalid_form").removeClass("fadeIn").removeAttr("style");
+	$("#invalid_text, .invalid_form, #invalid_email").removeClass("fadeIn").removeAttr("style");
 	var valid = true;
 	var which_field = [];
-	$("#contact-form input, #contact-form textarea, #signup-form input").not("#valid").each(function(){
+
+	$(".contact-form input, .contact-form textarea, .signup-form input").not("#valid").each(function(){
 		//if value is empty, form isn't valid. Fade in invalid icon and add to "which_field" var name of field
 		if (!$(this).val()) {
 			valid = false;
 			$(this).prev().addClass('fadeIn');
 			which_field.push($(this).attr("name")+", ");
-			//which_field += $(this).attr("name") + ", ";
+			console.log(which_field)
+		} else if ($(this).val() && $(this).attr('id') == 'email') {
+			if (!validateEmail($('#email').val())) {
+				$(this).prev().addClass('fadeIn');
+				$("#invalid_email").css({color: invalid_col}).text("Please enter a valid email address.").addClass("fadeIn");
+			}
 		}
 	});
+
 	if (!valid) {
-		which_field[which_field.length-1]= which_field[which_field.length-1].slice(0,-2);
+		which_field[which_field.length - 1] = which_field[which_field.length - 1].slice(0, -2);
 		//compose text of invalid form names
-		if (which_field.length>1) {
-			which_field[which_field.length-2]= which_field[which_field.length-2].slice(0,-2);
-			which_field.splice(which_field.length-1, 0, "and");
+		if (which_field.length > 1) {
+			which_field[which_field.length - 2] = which_field[which_field.length - 2].slice(0, -2);
+			which_field.splice(which_field.length - 1, 0, "and");
+		}
+
+		if (which_field.length === 4) {
+			which_field[1] = which_field[1] + ',';
 		}
 		var err_text = "";
 		//compose array of empty fields names into error text string
-		for (var i=0; i < which_field.length; i++) {
+		for (var i = 0; i < which_field.length; i++) {
 			err_text += which_field[i]+" ";
 		}
-		$(".invalid_text").css({color:invalid_col}).text("Oops! You left these fields blank: "+err_text).addClass("fadeIn");
+
+		$('#invalid_text').css({color: invalid_col}).text("Please fill out these fields: " + err_text).addClass("fadeIn");
+
 		return false;
 	}
 
