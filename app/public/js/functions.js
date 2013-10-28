@@ -137,7 +137,23 @@ $("#send_message").click(function(e){
 		}
 	});
 
-	if (!valid) {
+	if (valid) {
+    $.post('/users.json', {
+      user: {
+        name: $('#name').val(),
+        email: $('#email').val()
+      }
+    }, 'json').done(function (data) {
+      console.log(data);
+      if (data['error'] == 'oops') {
+        window.toastr.options = { 'positionClass': 'toast-top-full-width' };
+        window.toastr['error']('', 'This email is already in use.');
+      } else {
+        $('h2.superH').text("Thank you!");
+        $('form.signup-form').html("We have received your request and will get back to you when Authorly is ready to use.")
+      }
+    });
+	} else {
 		which_field[which_field.length - 1] = which_field[which_field.length - 1].slice(0, -2);
 		//compose text of invalid form names
 		if (which_field.length > 1) {
@@ -157,7 +173,7 @@ $("#send_message").click(function(e){
 		$('#invalid_text').css({color: invalid_col}).text("Please fill out these fields: " + err_text).addClass("fadeIn");
 
 		return false;
-	}
+  }
 
 
 	//make ajax request!

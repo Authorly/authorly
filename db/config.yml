@@ -1,11 +1,19 @@
 development:
-  adapter: sqlite3
-  database: development.sqlite3
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: interapptive_web_development
   pool: 5
-  timeout: 5000
+  username: root
+  password:
+  socket: /var/run/mysqld/mysqld.sock
 
 production:
-  adapter: sqlite3
-  database: production.sqlite3
-  pool: 5
-  timeout: 5000
+  host: beta.authorly.com
+  username: rails
+  password: f406aa0910719f5fa7f4b96f8e4faf2a
+  database: authorly_production
+  adapter: mysql2
+  reconnect: true
+  pool: 100
+  encoding: utf8
