@@ -1,8 +1,10 @@
 source 'https://rubygems.org'
 
 gem 'sinatra'
+gem 'json'
 gem 'rake'
 gem 'activerecord'
+gem 'bcrypt-ruby', '~>3.0.0'
 gem 'thin'
-gem 'sqlite3'
+gem 'mysql2'
 gem 'mailchimp'
