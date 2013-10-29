@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'json'
 require 'active_record'
 require 'mailchimp'
 
@@ -8,7 +9,17 @@ config = YAML::load(ERB.new(IO.read(File.join(File.dirname(__FILE__), '..', 'db'
 ActiveRecord::Base.establish_connection(config)
 
 class User < ActiveRecord::Base
+  has_secure_password
+
+  validates :password, :length => { :minimum => 6 }, 
+            :on => :create
+
+  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
+  validates_uniqueness_of :email, :case_sensitive => false, :message => 'is in use.'
+  validates_presence_of :email
+
   after_create :add_to_mailchimp
+
   @mailchimp_api = nil
 
   def self.mailchimp_api
@@ -16,6 +27,14 @@ class User < ActiveRecord::Base
     api_key = YAML::load(ERB.new(IO.read(File.join(File.dirname(__FILE__), '..', 'config', 'mailchimp.yml'))).result)[ENV['RACK_ENV']].symbolize_keys[:api_key]
 
     @mailchimp_api = Mailchimp::API.new(api_key)
+  end
+
+  def save_with_password
+    pass = SecureRandom.base64(32).gsub(/[=+$\/]/, '')[0..8]
+    self.password = pass
+    self.password_confirmation = pass
+    self.status = 'inactive'
+    save
   end
 
   private
@@ -28,9 +47,9 @@ class User < ActiveRecord::Base
       :send_welcome  => false,
     }
 
-    if self.promo.to_s.match(/\A\d\d\d\w\w\w\Z/) # If promo code matches 'XXXYYY' Where X is a letter and Y is a digit
-      info[:merge_vars] = { 'PCODE' => self.promo.to_s }
-    end
+    #if self.promo.to_s.match(/\A\d\d\d\w\w\w\Z/) # If promo code matches 'XXXYYY' Where X is a letter and Y is a digit
+      #info[:merge_vars] = { 'PCODE' => self.promo.to_s }
+    #end
 
     # Check out documentation for listSubscribe:
     # http://apidocs.mailchimp.com/api/1.3/listsubscribe.func.php
@@ -52,12 +71,17 @@ get '/' do
   erb :index
 end
 
-post '/users' do
-  if (user = User.find_by_email(params['user']['email'])).blank?
-    u = User.new(params["user"])
-    u.save
+post '/users.json' do
+  content_type :json
+  u = User.new(params['user'])
+  if u.save_with_password
+    resp = { :name => u.name, :email => u.email, :id => u.id }
+  else
+    resp = u.errors.messages
+    # Use this flag in XHR request for error handling.
+    resp[:error] = 'oops'
   end
 
   status 200
-  body   "OK"
+  resp.to_json
 end
