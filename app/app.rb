@@ -78,6 +78,7 @@ post '/users.json' do
     resp = { :name => u.name, :email => u.email, :id => u.id }
   else
     resp = u.errors.messages
+    # Use this flag in XHR request for error handling.
     resp[:error] = 'oops'
   end
 
