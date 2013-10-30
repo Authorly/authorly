@@ -2,7 +2,7 @@ $(document).ready(function() {
 
 var transitionEnd = "transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd";
 
-Mixpanel.track("Visited sign up page");
+mixpanel.track("Visited sign up page");
 
 //if theres any video to be played, use popcorn.js
 if ($('#video').length>0) {
@@ -151,8 +151,8 @@ $("#send_message").click(function(e){
         window.toastr.options = { 'positionClass': 'toast-top-full-width' };
         window.toastr['error']('', 'This email is already in use.');
       } else {
-      	Mixpanel.alias(data['id']);
-      	Mixpanel.track('Signed up');
+      	mixpanel.alias(data['id']);
+      	mixpanel.track('Signed up');
 
         $('h2.superH').text("Thank you!");
         $('form.signup-form').html("We have received your request and will get back to you when Authorly is ready to use.")
