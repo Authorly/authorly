@@ -2,8 +2,6 @@ $(document).ready(function() {
 
 var transitionEnd = "transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd";
 
-mixpanel.track("Visited sign up page");
-
 //if theres any video to be played, use popcorn.js
 if ($('#video').length>0) {
 	var example = Popcorn.vimeo(
