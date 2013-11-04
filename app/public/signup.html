@@ -77,10 +77,13 @@
 	<!--[if lt IE 9]>
 	<script src="js/html5shiv.js"></script>
 	<![endif]-->
+	<script src="js/mixpanel.js"></script>
 	<script src="js/functions.js"></script>
 	<script src="js/toastr-2.0.1.min.js"></script>
-	<script src="js/mixpanel.js"></script>
 
+<script>
+  mixpanel.track("Visited sign up page");
+</script>
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
