@@ -1,0 +1,3 @@
+development: 127.0.0.1:6379
+staging: 66.175.216.99:6379
+production: beta.authorly.com:6379
