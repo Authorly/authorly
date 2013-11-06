@@ -149,11 +149,9 @@ $("#send_message").click(function(e){
         window.toastr.options = { 'positionClass': 'toast-top-full-width' };
         window.toastr['error']('', 'This email is already in use.');
       } else {
-      	mixpanel.alias(data['id']);
-      	mixpanel.track('Signed up');
-
-        $('h2.superH').text("Thank you!");
-        $('form.signup-form').html("We have received your request and will get back to you when Authorly is ready to use.")
+        mixpanel.alias(data['id']);
+        mixpanel.track('Signed up');
+        window.location.href = '/thankyou.html'
       }
     });
 	} else {
