@@ -36,9 +36,10 @@ class User < ActiveRecord::Base
   end
 
   def save_with_empty_password
+    pass = SecureRandom.base64(32).gsub(/[=+$\/]/, '')[0..8]
+    self.password = pass
+    self.password_confirmation = pass
     self.status = 'inactive'
-    self.password = ''
-    self.password_confirmation = ''
     save
   end
 
