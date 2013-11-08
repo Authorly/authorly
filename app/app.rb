@@ -25,6 +25,7 @@ class User < ActiveRecord::Base
 
   after_create :add_to_mailchimp
   before_create { generate_token(:confirmation_token) }
+  before_create { generate_token(:auth_token) }
 
   @mailchimp_api = nil
 
