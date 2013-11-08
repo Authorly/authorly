@@ -33,6 +33,13 @@ class User < ActiveRecord::Base
     @mailchimp_api = Mailchimp::API.new(api_key)
   end
 
+  def save_with_empty_password
+    self.status = 'inactive'
+    self.password = ''
+    self.password_confirmation = ''
+    save
+  end
+
   def generate_token(column)
     begin
       self[column] = SecureRandom.urlsafe_base64
@@ -76,8 +83,7 @@ end
 post '/users.json' do
   content_type :json
   u = User.new(params['user'])
-  u.status = 'inactive'
-  if u.save
+  if u.save_with_empty_password
     resp = { :name => u.name, :email => u.email, :id => u.id }
     Resque.enqueue(MailerQueue, 'UserMailer', 'email_confirmation', u.id)
   else
