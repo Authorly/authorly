@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
     @mailchimp_api = Mailchimp::API.new(api_key)
   end
 
-  def save_with_empty_password
+  def save_with_password
     pass = SecureRandom.base64(32).gsub(/[=+$\/]/, '')[0..8]
     self.password = pass
     self.password_confirmation = pass
@@ -87,7 +87,7 @@ end
 post '/users.json' do
   content_type :json
   u = User.new(params['user'])
-  if u.save_with_empty_password
+  if u.save_with_password
     resp = { :name => u.name, :email => u.email, :id => u.id }
     Resque.enqueue(MailerQueue, 'UserMailer', 'email_confirmation', u.id)
   else
