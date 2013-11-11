@@ -1217,7 +1217,11 @@ min-width: 130px;
 	margin: 0 0.5em;
 }
 
-#send_message {cursor:pointer;width:139px; height:77px;float:right;margin-right:-18px; background:url(../img/sprites.png) no-repeat 0 -110px;text-indent: -999em; border: 0;}
+#send_message {cursor:pointer;width:196px; height:40px;float:right;margin-right:27px; margin-bottom: 30px; background:url(../images/sign_up_button.png) no-repeat; text-indent: -999em; border: 0;}
+
+#send_message:hover {
+	background-position: 0 -40px;
+}
 
 .invalid_form, #invalid_text, #invalid_email {
 	-webkit-transition: opacity 0.5s;
