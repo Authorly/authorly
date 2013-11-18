@@ -22,6 +22,21 @@ Starting up Application
 3. Start the server
    `ruby app/app.rb RACK_ENV=production &`
 
+
+Testing Along with web software
+---------
+1. In a terminal windo start redis server.
+   `redis-server`
+2. In another terminal cd to this repository and change `development` section of `db/config.yml` with access information of development mysql database on local machine that is used by web software.
+3. Start the thin server of this repository.
+   `RACK_ENV=development ruby app/app.rb`
+4. In another terminal start rails server of web software.
+   `bundle exec rails server`
+5. In another terminal start the resque workers from the web software.
+   `QUEUE=mailer RAILS_ENV=development VERBOSE=true PIDFILE=/tmp/resque0.pid bundle exec rake environment resque:work --trace`
+
+You can now test both authorly main website and web software together on your development machine.
+
 Submit buttons
 --------------
 All submit buttons are disabled (prev.default) so if you don't want to use my poor man's validator, remove it along with the function.
