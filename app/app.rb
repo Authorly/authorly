@@ -60,3 +60,19 @@ post '/users.json' do
   status 200
   resp.to_json
 end
+
+post '/unbounce.json' do
+  content_type :json
+  u = User.new(:name => params['name'].first, :email => params['email'].first)
+  if u.save_with_password
+    resp = { :name => u.name, :email => u.email, :id => u.id }
+    Resque.enqueue(MailerQueue, 'UserMailer', 'email_confirmation', u.id)
+  else
+    resp = u.errors.messages
+    # Use this flag in XHR request for error handling.
+    resp[:error] = 'oops'
+  end
+
+  status 200
+  resp.to_json
+end
