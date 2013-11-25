@@ -2,8 +2,19 @@ require 'sinatra'
 require 'json'
 require 'active_record'
 require 'resque'
+require 'logger'
 
 ENV['RACK_ENV'] ||= 'production'
+
+configure do
+  log_file = File.open(File.join(File.dirname(__FILE__), '..', 'log', ENV['RACK_ENV'] + '.log'), 'a+')
+  log_file.sync = true if ENV['RACK_ENV'] == 'development'
+  logger = Logger.new(log_file)
+  logger.level = Logger::DEBUG
+  set :logger, logger
+end
+
+def logger; settings.logger; end
 
 config = YAML::load(ERB.new(IO.read(File.join(File.dirname(__FILE__), '..', 'db', 'config.yml'))).result)[ENV['RACK_ENV']].symbolize_keys
 ActiveRecord::Base.establish_connection(config)
@@ -42,11 +53,13 @@ end
 
 
 get '/' do
+  logger.info "params: #{params.inspect}"
   erb :index
 end
 
 post '/users.json' do
   content_type :json
+  logger.info "params: #{params.inspect}"
   u = User.new(params['user'])
   if u.save_with_password
     resp = { :name => u.name, :email => u.email, :id => u.id }
@@ -63,6 +76,7 @@ end
 
 post '/unbounce.json' do
   content_type :json
+  logger.info "params: #{params.inspect}"
   u = User.new(:name => params['name'].first, :email => params['email'].first)
   if u.save_with_password
     resp = { :name => u.name, :email => u.email, :id => u.id }
