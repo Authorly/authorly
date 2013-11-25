@@ -77,7 +77,9 @@ end
 post '/unbounce.json' do
   content_type :json
   logger.info "params: #{params.inspect}"
-  u = User.new(:name => params['name'].first, :email => params['email'].first)
+
+  user_data = JSON.parse(params['data.json'])
+  u = User.new(:name => user_data['name'].first, :email => user_data['email'].first)
   if u.save_with_password
     resp = { :name => u.name, :email => u.email, :id => u.id }
     Resque.enqueue(MailerQueue, 'UserMailer', 'email_confirmation', u.id)
