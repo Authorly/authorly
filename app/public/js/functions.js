@@ -133,6 +133,7 @@ $("#send_message").click(function(e){
 			if (!validateEmail($('#email').val())) {
 				$(this).prev().addClass('fadeIn');
 				$("#invalid_email").css({color: invalid_col}).text("Please enter a valid email address.").addClass("fadeIn");
+        valid = false;
 			}
 		}
 	});
