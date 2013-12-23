@@ -27,6 +27,7 @@
 	}
 	</style>
 	<![endif]-->
+	<script src="js/analytics.js"></script>
 </head>
 <body>
 	<div id="vignette"></div>
@@ -62,18 +63,20 @@
 	<a class="home_icon" href="http://www.authorly.com">Back to top</a>
 </footer>
 
-	<script src="js/jquery.min.js"></script>
-	<script src="js/modernizr.js"></script>
-	<!--[if lt IE 9]>
-	<script src="js/html5shiv.js"></script>
-	<![endif]-->
-	<script src="js/mixpanel.js"></script>
-	<script src="js/functions.js"></script>
-	<script src="js/toastr-2.0.1.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/modernizr.js"></script>
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<![endif]-->
+<script src="js/analytics.js"></script>
+<script src="js/functions.js"></script>
+<script src="js/toastr-2.0.1.min.js"></script>
 
-<script>
-  //mixpanel.track("Visited sign up page");
+<script type="text/javascript">
+  _kmq.push(['identify', $.urlParam['email']]);
+  _kmq.push(['record', 'Signed up', {'_d':1, '_t':1234567890}]);
 </script>
+
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
