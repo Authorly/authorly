@@ -150,9 +150,7 @@ $("#send_message").click(function(e){
         window.toastr.options = { 'positionClass': 'toast-top-full-width' };
         window.toastr['error']('', 'This email is already in use.');
       } else {
-        mixpanel.alias(data['id']);
-        mixpanel.track('Signed up');
-        window.location.href = '/thankyou.html'
+        window.location.href = "/thankyou.html?email=" + data['email']
       }
     });
 	} else {
@@ -297,3 +295,8 @@ $(".books li").click(function(){
 	}, 700);
 });
 });
+
+$.urlParam = function(name){
+    var results = new RegExp('[\\?&amp;]' + name + '=([^&amp;#]*)').exec(window.location.href);
+    return results[1] || 0;
+}
