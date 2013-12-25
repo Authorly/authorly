@@ -40,6 +40,7 @@ class User < ActiveRecord::Base
     pass = SecureRandom.base64(32).gsub(/[=+$\/]/, '')[0..8]
     self.password = pass
     self.password_confirmation = pass
+    self.accepted_terms = true
     save
   end
 
