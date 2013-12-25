@@ -41,6 +41,7 @@ class User < ActiveRecord::Base
     self.password = pass
     self.password_confirmation = pass
     self.status = 'inactive'
+    self.accepted_terms = true
     save
   end
 
