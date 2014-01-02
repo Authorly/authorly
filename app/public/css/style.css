@@ -1229,6 +1229,12 @@ min-width: 130px;
 	transition: opacity 0.5s;
 }
 
+#tos_text {
+  color: gray;
+  font-size: 1.0em;
+  margin-top: -45px;
+}
+
 .invalid_form,
 .signup_invalid_form {
 	opacity: 0;
