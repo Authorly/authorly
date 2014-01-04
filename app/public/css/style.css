@@ -830,6 +830,10 @@ article {
 	margin:0 0 2em;
 }
 
+article.press-bottom-spacer {
+  margin: 0 0 43em !important;
+}
+
 .ornament_ending {
 	background: url(../img/article_ornament2.png) no-repeat center bottom;
 	padding-bottom: 3em;
