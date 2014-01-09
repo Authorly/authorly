@@ -21,5 +21,5 @@ function _kms(u){
     f.parentNode.insertBefore(s, f);
   }, 1);
 }
-_kms('//i.kissmetrics.com/i.js');
-_kms('//doug1izaerwt3.cloudfront.net/' + _kmk + '.1.js');
+_kms('//authorly.com/js/i.js');
+_kms('//authorly.com/js/eaa44bcbccb5653fdfe62261d025ec89ee4e6802.1.js');
