@@ -112,7 +112,7 @@ $(".faq li").click(function(){
 var invalid_col = "#d6220a", valid_col = "#468c13"; //determines color of info text
 
 function validateEmail(email) {
-	return /^([A-Za-z0-9\.\-_]+)@([A-Za-z0-9\-_]+)\.([A-Za-z]+)$/.test(email);
+	return /^([A-Za-z0-9\.\-_+]+)@([A-Za-z0-9\-_]+)\.([A-Za-z]+)$/.test(email);
 }
 
 //contact form validation function
@@ -144,7 +144,7 @@ $("#send_message").click(function(e){
         window.toastr.options = { 'positionClass': 'toast-top-full-width' };
         window.toastr['error']('', 'This email is already in use.');
       } else {
-        window.location.href = "/thankyou.html?email=" + data['email']
+        window.location.href = "/thankyou.html"
       }
     });
 	} else {
