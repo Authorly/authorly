@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'sinatra'
+gem 'sinatra-contrib'
 gem 'json'
 gem 'rake'
 gem 'activerecord'
@@ -8,3 +9,4 @@ gem 'bcrypt-ruby', '~>3.0.0'
 gem 'thin'
 gem 'mysql2'
 gem 'resque'
+gem 'kmts', '~>2.0.0'
