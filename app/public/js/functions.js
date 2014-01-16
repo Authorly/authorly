@@ -129,13 +129,7 @@ $("#send_message").click(function(e){
 			$(this).prev().addClass('fadeIn');
 			which_field.push($(this).attr("name")+", ");
 			console.log(which_field)
-		} else if ($(this).val() && $(this).attr('id') == 'email') {
-			if (!validateEmail($('#email').val())) {
-				$(this).prev().addClass('fadeIn');
-				$("#invalid_email").css({color: invalid_col}).text("Please enter a valid email address.").addClass("fadeIn");
-        valid = false;
-			}
-		}
+    }
 	});
 
 	if (valid) {
