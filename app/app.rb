@@ -99,8 +99,8 @@ post '/users.json' do
   if u.save_with_password
     resp = { :name => u.name, :email => u.email, :id => u.id }
     Resque.enqueue(MailerQueue, 'UserMailer', 'email_confirmation', u.id)
-    KMTS.record(km_id, 'Signed Up')
-    KMTS.set(km_id, :email => u.email)
+    KMTS.alias(u.email, km_id)
+    KMTS.record(u.email, 'Signed Up')
   else
     resp = u.errors.messages
     # Use this flag in XHR request for error handling.
