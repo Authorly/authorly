@@ -65,7 +65,8 @@ set :cookie_options, :expires => Time.now + 365 * 24 * 60 * 60 # 1 year from now
 get '/' do
   logger.info "params: #{params.inspect}"
 
-  km_id = cookies[:km_id]
+  km_id = cookies[:email].nil? ? cookies[:km_id] : cookies[:email]
+  logger.info km_id
   if km_id.nil? || km_id.empty?
     km_id = User.new.unique_token_for(:kissmetrics_identifier)
     cookies[:km_id] = km_id
@@ -98,6 +99,7 @@ post '/users.json' do
   u = User.new(params['user'].merge(:kissmetrics_identifier => km_id))
   if u.save_with_password
     resp = { :name => u.name, :email => u.email, :id => u.id }
+    cookies[:email] = u.email
     Resque.enqueue(MailerQueue, 'UserMailer', 'email_confirmation', u.id)
     KMTS.alias(u.email, km_id)
     KMTS.record(u.email, 'Signed Up')
@@ -115,7 +117,8 @@ post '/kissmetrics.json' do
   content_type :json
   logger.info "params: #{params.inspect}"
 
-  km_id = cookies[:km_id]
+  km_id = cookies[:email].nil? ? cookies[:km_id] : cookies[:email]
+  logger.info km_id
   if km_id.nil? || km_id.empty?
     km_id = User.new.unique_token_for(:kissmetrics_identifier)
     cookies[:km_id] = km_id
