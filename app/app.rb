@@ -113,7 +113,7 @@ post '/users.json' do
   resp.to_json
 end
 
-post '/kissmetrics.json' do
+post '/kmetrics.json' do
   content_type :json
   logger.info "params: #{params.inspect}"
 

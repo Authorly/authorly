@@ -150,7 +150,7 @@ $("#send_message").click(function(e){
         window.toastr.options = { 'positionClass': 'toast-top-full-width' };
         window.toastr['error']('', 'This email is already in use.');
       } else {
-        window.location.href = "/thankyou.html?email=" + data['email']
+        window.location.href = "/thankyou.html"
       }
     });
 	} else {

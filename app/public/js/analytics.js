@@ -11,7 +11,7 @@
 
 window.kissmetrics = window.kissmetrics || {};
 window.kissmetrics.trackEvent = function(event_name) {
-  $.post('/kissmetrics.json', {
+  $.post('/kmetrics.json', {
     km_event: {
       name: event_name
     }
