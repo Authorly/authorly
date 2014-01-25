@@ -27,20 +27,21 @@
 	</style>
 	<![endif]-->
 	<style>
-		#log_in_div {height:700px;position: relative;}
+		#log_in_div {min-height:120px;position: relative;}
 		.log_in_form {top:0;opacity: 1}
 		.close_login {display: none}
 	</style>
 </head>
 <body>
 	<div id="vignette"></div>
+	<div id="wrapper">
 	<header>
 		<h1><a href="index.html">Authorly</a></h1>
 		<nav>
 			<a class="menubtn" href="#menu">Menu</a>
 			<ul>
 				<li><a class="menu_how" href="how-it-works.html">How it Works</a></li>
-				<li><a class="menu_feat" href="features.html">Features</a></li>
+				<li><a class="menu_pricing" href="pricing.html">Pricing</a></li>
 				<li><a class="menu_about" href="about.html">About Us</a></li>
 				<li>
 					<div class="fb-like" data-href="http://facebook.com/authorly" data-layout="standard" data-action="like" data-show-faces="false" data-share="false"></div>
@@ -52,8 +53,9 @@
 		<span class="shadow sh_top"></span>
 		<span class="bookshelf shelf_top"></span>
 	</header>
+	<div id="cover_wrapper">
 	<div id="log_in_div">
-		<div class="log_in_overlay"></div>
+		<!--<div class="log_in_overlay"></div>-->
 		<div class="log_in_form">
 			<span class="close_btn close_login"></span>
 			<form class="sign_create_form sign_in">
@@ -85,12 +87,14 @@
 			</form>
 			<span class="cleaner"></span>
 		</div>
-</div>
+	</div>
+	</div>
+	</div>
 <footer>
 	<ul id="footer_nav">
 	<li><a href="blog/index.php" target="_self">Blog</a>&nbsp;|&nbsp;</li>
 	<li><a href="about.html" target="_self">Contact</a>&nbsp;|&nbsp;</li>
-	<li><a href="faq.html" target="_self">FAQ</a>&nbsp;|&nbsp;</li>
+	<li><a href="http://help.authorly.com" target="_blank">Help Docs</a>&nbsp;|&nbsp;</li>
 	<li><a href="press-kit.html" target="_self">Press</a>&nbsp;|&nbsp;</li>
 	<li><a href="tos.html" target="_self">Terms of Service</a>&nbsp;|&nbsp;</li>
 	<li><a href="privacy_policy.html" target="_self">Privacy Policy</a></li>
@@ -109,8 +113,7 @@
 <script type="text/javascript" src="js/facebook.js"></script>
 <script type="text/javascript" src="js/snapengage.js"></script>
 <script type="text/javascript">
-  window.kissmetrics.trackEvent('Visited Login page');
+   window.kissmetrics.trackEvent('Visited Login page');
 </script>
-
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<head>
+<head xmlns="http://www.w3.org/1999/html">
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
@@ -29,91 +29,99 @@
 </head>
 <body>
 	<div id="vignette"></div>
+	<div id="wrapper">
 	<header>
 		<h1><a href="http://www.authorly.com">Authorly</a></h1>
 		<nav>
 			<a class="menubtn" href="#menu">Menu</a>
 			<ul>
 				<li><a class="menu_how" href="how-it-works.html">How It Works</a></li>
-				<li><a class="menu_feat" href="features.html">Features</a></li>
+				<li><a class="menu_pricing" href="pricing.html">Pricing</a></li>
 				<li><a class="menu_about" href="about.html">About Us</a></li>
 				<li>
 					<div class="fb-like" data-href="http://facebook.com/authorly" data-layout="standard" data-action="like" data-show-faces="false" data-share="false"></div>
 				</li>
+                <li><a class="menu_log_in menu_help_docs" href="http://help.authorly.com" target="_blank">Help Docs</a></li>
 				<li><a class="menu_log_in" href="signup.html">Sign Up</a></li>
-				<li><a class="menu_sign_in" href="http://beta.authorly.com">Sign In</a></li>
+				<li><a class="menu_sign_in" href="http://beta.authorly.com">Log In</a></li>
 			</ul>
 		</nav>
 		<span class="shadow sh_top"></span>
 		<span class="bookshelf shelf_top"></span>
 	</header>
+	<div id="cover_wrapper">
 	<section id="one_page">
 		<h1 class="superH">Pricing</h1>
-		<table class="pricing">
-			<thead>
-				<tr>
-					<th><h2>Tiers</h2></th>
-					<th class="saas"><h2>Monthly Fee</h2></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>Create Demo Apps</td>
-					<td class="saas">Free</td>
-				</tr>
-				<tr>
-					<td>Publish 1 App</td>
-					<td class="saas">$50</td>
-				</tr>
-				<tr>
-					<td>Publish Up to 3 Apps</td>
-					<td class="saas">$100</td>
-				</tr>
-				<tr>
-					<td>Publish Up to 10 Apps</td>
-					<td class="saas">$250</td>
-				</tr>
-			</tbody>
-		</table>
+		<article>
+			<h2>Overview</h2>
+			<p><strong>Authorly is free to use for building your storybook app</strong>, there are no sign up or usage costs.</p>
+			<ul>
+				<li>Sign up, create your apps and publish to the app stores for free</li>
+			</ul>
+            <br>
+            <br>
+			<p><strong>We make money via a revenue share on sales</strong>. Once your app is published:</p>
+			<ul>
+				<li>The marketplaces (Apple, Google, etc.) collect 30% of your app's total revenue</li>
+				<li>Authorly takes 20% of your app's total revenue</li>
+				<li>You keep the remaining 50% of your app's revenue</li>
+			</ul>
+            <br>
+            <br>
+			<p>If you want us to make the app for you, you can utilize our <strong><a href="#production-service">production service</a></strong> for a small fee.</p>
+		</article>
+		<article>
+			<h2 style="margin-top:70px">Revenue share</h2>
+				<img id="pie_chart" src="images/pie_chart.png" alt="Pie chart of Revenue Share">
 
-		<p class="pricing-details">The standard monthly fee includes publishing, data storage, maintenance, and support.</p>
-
-		<hr />
-
-		<table class="pricing">
-			<thead>
-				<tr>
-					<th><h2>Tiers</h2></th>
-					<th class="production"><h2>Production Fee (optional)</h2></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>Create Demo Apps</td>
-					<td class="production">N/A</td>
-				</tr>
-				<tr>
-					<td>Publish 1 App</td>
-					<td class="production">$20/page</td>
-				</tr>
-				<tr>
-					<td>Publish Up to 3 Apps</td>
-					<td class="production">$18/page</td>
-				</tr>
-				<tr>
-					<td>Publish Up to 10 Apps</td>
-					<td class="production">$15/page</td>
-				</tr>
-			</tbody>
-		</table>
-
-		<p class="pricing-details">The production fee applies if you would like Authorly to build your app for you. (Does not include voiceover fees.)</p>
+		</article>
+		<article>
+			<h2 style="margin-top:100px; margin-bottom: 10px" id="production-service">Production service</h2>
+			<table class="pricing">
+				<thead>
+					<tr>
+						<th class="table_header">Tiers</th>
+						<th class="production table_header">Rate</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Publish 1 App</td>
+						<td class="production" align=center>$20/page</td>
+					</tr>
+					<tr>
+						<td>Publish Up to 3 Apps</td>
+						<td class="production" align=center>$18/page</td>
+					</tr>
+					<tr>
+						<td>Publish Up to 10 Apps</td>
+						<td class="production" align=center>$15/page</td>
+					</tr>
+					<tr>
+						<td>More than 10 Apps</td>
+						<td class="production" align=center><a href="mailto:info@authorly.com">Contact Us</a></td>
+					</tr>
+				</tbody>
+			</table>
+            <br>
+            <br>
+            <p><strong>To get started with our production services,</strong> please email <a href="mailto:info@authorly.com">info@authorly.com</a> with the subject "PRODUCTION SERVICE" and we'll get the simple process started right away!</p>
+            <br>
+            <p>Apps are typically completed within a few weeks of receiving necessary content, including revisions.</p>
+            <br>
+            <p>Still want to learn more about our production service? Check out the related <a href="http://help.authorly.com/category/89-production-service" target="_blank">help docs</a>.</a></p>
+            <br>
+            <br>
+            <br>
+		</article>
 	</section>
+</div>
+</div>
 <footer>
 	<ul id="footer_nav">
 	<li><a href="blog/index.php" target="_self">Blog</a>&nbsp;|&nbsp;</li>
 	<li><a href="about.html" target="_self">Contact</a>&nbsp;|&nbsp;</li>
-	<li><a href="faq.html" target="_self">FAQ</a>&nbsp;|&nbsp;</li>
+	<li><a href="http://help.authorly.com" target="_blank">Help Docs</a>&nbsp;|&nbsp;</li>
 	<li><a href="press-kit.html" target="_self">Press</a>&nbsp;|&nbsp;</li>
 	<li><a href="tos.html" target="_self">Terms of Service</a>&nbsp;|&nbsp;</li>
 	<li><a href="privacy_policy.html" target="_self">Privacy Policy</a></li>
@@ -133,6 +141,5 @@
 <script type="text/javascript">
   window.kissmetrics.trackEvent('Visited Pricing page');
 </script>
-
 </body>
 </html>
