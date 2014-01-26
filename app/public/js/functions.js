@@ -2,27 +2,6 @@ $(document).ready(function() {
 
 var transitionEnd = "transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd";
 
-//if theres any video to be played, use popcorn.js
-if ($('#video').length>0) {
-	var example = Popcorn.vimeo(
-			'#video',
-			'http://vimeo.com/60792270');
-
-
-	$('.ipad_showcase').append('<span class="video_bg"></span>');
-
-	$('.play_btn').click(function(){
-		example.play();
-		$(".video_bg, .play_btn").css({display:'none'});
-
-	}).hover(function(){
-		$(".video_bg").text("Play video");
-	},function(){
-		$(".video_bg").text("");
-	});
-}
-
-
 $(".menubtn").click(function(){
 	$("nav ul").toggleClass('slideDown');
 	$(this).addClass('menu_pull_down').bind(transitionEnd,function(){
@@ -34,7 +13,7 @@ $(".menubtn").click(function(){
 	$(this).removeClass('menu_pull_down');
 });
 
-//pop up info along with string text arg
+/* pop up info along with string text arg */
 function pop_up_info(str_info) {
 	//pop up box wrapper with box and all other informations, along with behaviour (close btn)
 	var pop_up_coming = $('<div/>', {'class':'pop_up_box_wrapper'}).append(
@@ -58,8 +37,7 @@ function pop_up_info(str_info) {
 	},10);
 }
 
-
-//read button click hover function
+/* Read button click hover function */
 $(".read_our_btn").click(function(){
 	pop_up_info('Coming soon!');
 }).hover(function(){
@@ -68,7 +46,7 @@ $(".read_our_btn").click(function(){
 	$(this).removeClass('read_our_focus');
 });
 
-//menu login button hover function
+/* Menu login button hover function */
 $(".menu_log_in").hover(function(){
 	$(this).addClass('menu_log_in_hover');
 },function(){
@@ -76,63 +54,33 @@ $(".menu_log_in").hover(function(){
 });
 
 
-//fading in sign form function – loads login div from login.html
-/*$(".menu_log_in, .try_button, .create_app_btn").click(function(){
-
-	//uncomment if login functionality is on
-  
-  $('body').append('<div class="log_in_overlay"></div>','<div class="log_in_div"></div>');
-  $('.log_in_div').load('login.html .log_in_form', function(){
-    var form_height=$(window).scrollTop();
-    $(".log_in_form").css({top:form_height+50}).addClass('fadeIn');
-    $(".log_in_overlay").css({top:0}).addClass('fadeIn');
-    //after login.html elemenent has been loaded, add click functionality
-    //fading out sign in form function
-    $(".log_in_form .close_login, .log_in_overlay").click(function() {
-      $(".log_in_form").removeAttr('style').removeClass('fadeIn');
-      $(".log_in_overlay").removeAttr('style').removeClass('fadeIn');
-      setTimeout(function(){
-        $('.log_in_overlay, .log_in_div').remove();
-      },600);
-    });
-    validateLogin();
-  });
-  
-});*/
-
-//faq simple navigation
-$(".faq li").click(function(){
+/* faq simple navigation */
+$(".faq li, .faq_backTop").click(function(e){
+	e.preventDefault();
 	var where_to = $(this).html(); //takes table-of-contents position text and compares it with h2 and h3 text below
 	where_to = $("h2:contains("+where_to+"), h3:contains("+where_to+")").offset().top;
+
+	// for Back to top btn or any button, which hasn't got it's relative in h2, h3 - going back to top.
+	if (where_to == 0) {
+		where_to = $("#cover_wrapper").offset().top;
+	}
 	//navigates to particular section
-	$(window).scrollTop(where_to);
+	$("html, body").animate({ scrollTop: where_to });
 });
 
 
-var invalid_col = "#d6220a", valid_col = "#468c13"; //determines color of info text
+/* determines color of info text */
+var invalid_col = "#d6220a", valid_col = "#468c13";
 
-function validateEmail(email) {
-	return /^([A-Za-z0-9\.\-_+]+)@([A-Za-z0-9\-_]+)\.([A-Za-z]+)$/.test(email);
-}
 
-//contact form validation function
-$("#send_message").click(function(e){
+/* contact form validation function */
+$("#sign-up-submit").click(function(e){
 	e.preventDefault();
 	$("#invalid_text, .invalid_form, #invalid_email").removeClass("fadeIn").removeAttr("style");
 	var valid = true;
 	var which_field = [];
-
-	$(".contact-form input, .contact-form textarea, .signup-form input").not("#valid").each(function(){
-		//if value is empty, form isn't valid. Fade in invalid icon and add to "which_field" var name of field
-		if (!$(this).val()) {
-			valid = false;
-			$(this).prev().addClass('fadeIn');
-			which_field.push($(this).attr("name")+", ");
-			console.log(which_field)
-    }
-	});
-
 	if (valid) {
+    $("#sign-up-submit").val('Submitting...').prop('disabled', true);
     $.post('/users.json', {
       user: {
         name: $('#name').val(),
@@ -168,11 +116,6 @@ $("#send_message").click(function(e){
 
 		return false;
   }
-
-
-	//make ajax request!
-	//after success you can place
-	//$(".invalid_text").css({color:valid_col}).text("Message has been sent!.").addClass("fadeIn");
 });
 
 function validateLogin() {
@@ -198,100 +141,138 @@ function validateLogin() {
     });
 	});
 }
-//ipad closing button - for book showcase
-$(".ipad_showcase .close_ipad").click(function() {
-	returnBooks();
-	closeShowcase();
-});
 
-//function of returning books to shelf - needed for book animation
-function returnBooks() {
-	//checks if any book is pulled out
-	$(".books li").each(function(){
-		var pulled_book = $(this);
-		if (pulled_book.hasClass('pullout')) {
-			//if any book is being pulled out, it hides book
-			pulled_book.removeClass('focus');
+/* iPad video controls */
+var myVideo=document.getElementById("video1");
+
+$('.video_control .general_btn').click(function(e){
+	window.kissmetrics.trackEvent('Played demo video');
+
+    e.preventDefault();
+
+	$(this).parent().fadeOut('fast', function(){
+		$(this).addClass("compact_control");
+		$(".sp_ipad video").mousemove(function(){
+			$(".compact_control").fadeIn('fast')
 			setTimeout(function(){
-				pulled_book.removeAttr('style').removeClass("pullout");
-			}, 700);
-			return;
-		}
-	});
-}
-
-//function of ending whole book-ipad showcase
-function closeShowcase() {
-	//ends book showcase by fading out iPad
-	example.pause();
-	$(".book_showcase_overlay").removeClass('fadeIn');
-	$(".ipad_showcase").removeClass('fadeIn').bind(transitionEnd, function(){
-		//hides invisible ipad in order to prevent clicking on it (display none didn't work)
-		$(this).css({top:'-999%'}).unbind(transitionEnd);
-		$(".book_showcase_overlay").remove();
-	});
-}
-
-//books animation function
-$(".books li").click(function(){
-
-	if ($(".book_showcase_overlay").length < 1){
-		var scrollTop = $(window).scrollTop();
-		//initializes by detecting if background for books was initated
-		$(".ipad_showcase").css({top:scrollTop+50}).addClass("fadeIn");
-		//creates invisible background (if there isn't any)
-		var books_shwcase = $("<span />",{class: 'book_showcase_overlay'}).click(function(){
-			returnBooks();
-			closeShowcase();
+				$(".compact_control").fadeOut('slow')
+			}, 4000);
 		});
-		$('.ipad_showcase').before(books_shwcase);
-		//animation fix
-		setTimeout(function(){
-			$(".book_showcase_overlay").addClass("fadeIn");
-		},10);
-		
-
 	}
-	
-	//hides book button
-	if ($(".book_btn").length > 0){
-		//if there's "Click on a book!" button, fadeout and remove it
-		$(".book_btn").addClass('fadeOut');
-		setTimeout(function(){$(".book_btn").remove();}, 700);
+	);
+
+	if (myVideo.paused) {
+		$(this).addClass('pauseVidBtn');
+	  myVideo.play();
+	  }
+	else {
+		$(this).removeClass('pauseVidBtn');
+	  myVideo.pause();
 	}
-
-	returnBooks();
-
-	var book = $(this);
-
-	if (book.hasClass('pullout')) {
-		/*
-		if clicked book was pulled out, it returns to shelf by "each"
-		function. To avoid being pulled out once more, this function
-		should be finished right now.
-		*/
-		closeShowcase(); //<- removes ipad and other things
-		return;
-	}
-
-	//pulls out book
-	book.addClass('pullout');
-	
-	if (!book.hasClass('book3') && $('.ipad_showcase p').length<1) {
-		$('.ipad_showcase').append('<p>Coming soon. Play the demo for Stranger in the Woods</p>');
-	}
-	else if (book.hasClass('book3'))  {
-		$('.ipad_showcase p').remove();
-	}
-
-	setTimeout(function(){
-		book.css({zIndex:50}).addClass("focus");
-	}, 700);
-});
 });
 
-$.urlParam = function(name){
-  return decodeURI(
-      (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1]
-    );
+/* Hover effect on Sign Up chalkboard button */
+$(".no-touch .sp_chalkboard a").hover(function(){
+	$(this).find('span').css({width:0})
+	$(this).find('.first_underline')
+		.stop()
+		.animate({width: 100 + "%"},400)
+		.siblings()
+		.delay(300)
+		.animate({width:100 + "%"},400);
+}, function(){
+	$(this).find('span').css({width:100 + "%"});
+});
+
+/* Carousel */
+var authorlyMadeCarousel = new function() {
+	// Variables
+	var howManyBooks = $(".books_set").length,
+		bookSetNo = 0;
+
+	$(".books_set").css({width: 100 / howManyBooks + "%"});
+
+	$('#books_set_wrapper').css({width:howManyBooks * 100  + "%"});
+
+	// Setting  initial height for carousel viewport (based on first books set)
+	$("#carousel_viewport").css({height:$(".books_set:eq(0)").css('height')});
+
+	// Adjusting viewport's height when resizing
+	$(window).resize(function(){
+		$("#carousel_viewport").css({height:$(".books_set:eq(0)").css('height')});
+	});
+
+	// Some css books formatting for keeping layout in whole piece
+	$(".books_set").each(function(){
+		$(this).find('div').eq(2).css({clear:'left'});
+	});
+	$(".books_set div:even").addClass('even_thumbnail');
+	$(".books_set div:odd").addClass('odd_thumbnail');
+
+	// If there's only one books set (one page), hide navigation
+	if (howManyBooks == 1) {
+		$(".next_book_btn, .prev_book_btn").css({display:'none'});
+	}
+
+	// Setting btns behaviour
+	$(".next_book_btn").click(function(e){
+		e.preventDefault();
+		bookSetNo ++;
+		authorlyMadeCarousel.btnLookReset();
+		//if scrolling reaches it's boundaries, stop!
+		if (bookSetNo > howManyBooks - 1) {
+			bookSetNo = howManyBooks - 1;
+			return false
+		}
+		authorlyMadeCarousel.bookAnim();
+	});
+
+	$(".prev_book_btn").click(function(e){
+		e.preventDefault();
+		bookSetNo --;
+		authorlyMadeCarousel.btnLookReset();
+		//if scrolling reaches it's boundaries, stop!
+		if (bookSetNo < 0) {
+			bookSetNo = 0;
+			return false
+		}
+		authorlyMadeCarousel.bookAnim();
+	});
+
+	// Resetting look of buttons
+	this.btnLookReset = function() {
+		$(".next_book_btn, .prev_book_btn").removeClass('book_btn_end');
+
+		if (bookSetNo <= 0) {
+			$(".prev_book_btn").addClass('book_btn_end');
+		}
+		if (bookSetNo >= howManyBooks - 1 ) {
+			$(".next_book_btn").addClass('book_btn_end');
+		}
+	}
+
+	// Method responsible for css animation
+	this.bookAnim = function() {
+
+		// Get margin-left offset (used in animation)
+		var leftPos = bookSetNo * -100;
+
+		// Get next/prev books set's height
+		var booksSetHeight = $('.books_set').eq(bookSetNo).css('height');
+
+		// Use CSS transitions when possible
+		if ($('html').hasClass('csstransitions')) {
+			$("#books_set_wrapper").css({marginLeft: leftPos + "%"});
+			$("#carousel_viewport").css({height:booksSetHeight});
+		}
+		else {
+			// Otherwise use jquery animate method
+			$("#books_set_wrapper").animate({marginLeft: leftPos + "%"},500);
+			$("#carousel_viewport").animate({height:booksSetHeight});
+		}
+	}
+
+	//setting button look on startup
+	this.btnLookReset();
 }
+});

@@ -9,6 +9,8 @@
    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
  })();
 
+
+// KISS metrics
 window.kissmetrics = window.kissmetrics || {};
 window.kissmetrics.trackEvent = function(event_name) {
   $.post('/kmetrics.json', {

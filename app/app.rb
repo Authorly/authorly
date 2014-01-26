@@ -24,7 +24,7 @@ ActiveRecord::Base.establish_connection(config)
 resque_config = YAML::load(ERB.new(IO.read(File.join(File.dirname(__FILE__), '..', 'db', 'resque.yml'))).result)[ENV['RACK_ENV']]
 Resque.redis = resque_config
 
-kiss_metrics_config = YAML::load(ERB.new(IO.read(File.join(File.dirname(__FILE__), '..', 'db', 'kissmetrics.yml'))).result)[ENV['RACK_ENV']] 
+kiss_metrics_config = YAML::load(ERB.new(IO.read(File.join(File.dirname(__FILE__), '..', 'db', 'kissmetrics.yml'))).result)[ENV['RACK_ENV']]
 KMTS.init(kiss_metrics_config, :log_dir => File.join(File.dirname(__FILE__), '..', 'log'))
 
 class MailerQueue

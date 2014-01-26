@@ -29,25 +29,28 @@
 </head>
 <body>
 	<div id="vignette"></div>
+	<div id="wrapper">
 	<header>
 		<h1><a href="http://www.authorly.com">Authorly</a></h1>
 		<nav>
 			<a class="menubtn" href="#menu">Menu</a>
 			<ul>
 				<li><a class="menu_how" href="how-it-works.html">How it Works</a></li>
-				<li><a class="menu_feat" href="features.html">Features</a></li>
+				<li><a class="menu_pricing" href="pricing.html">Pricing</a></li>
 				<li><a class="menu_about" href="about.html">About Us</a></li>
 				<li>
 					<div class="fb-like" data-href="http://facebook.com/authorly" data-layout="standard" data-action="like" data-show-faces="false" data-share="false"></div>
 				</li>
+                <li><a class="menu_log_in menu_help_docs" href="http://help.authorly.com" target="_blank">Help Docs</a></li>
 				<li><a class="menu_log_in" href="signup.html">Sign Up</a></li>
-				<li><a class="menu_sign_in" href="http://beta.authorly.com">Sign In</a></li>
+				<li><a class="menu_sign_in" href="http://beta.authorly.com">Log In</a></li>
 			</ul>
 		</nav>
 		<span class="shadow sh_top"></span>
 		<span class="bookshelf shelf_top"></span>
 	</header>
-	<div class="cover">
+	<div id="cover_wrapper">
+	<div id="cover">
 		<div id="content">
 		<div class="pages pleft"></div>
 		<div class="pages pright"></div>
@@ -59,60 +62,225 @@
 				<p>
 					Authorly is a digital publishing platform that enables anyone to create interactive, cross-platform storybook apps. Using our intuitive web interface, authors can build beautiful, unique, and powerful native applications for Android and iOS smartphones and tablets.
 				</p>
+			</article>
+			<article>
 				<h2>Made by Authorly</h2>
-				<table id="authorly_made">
-					<tbody>
-						<tr>
-							<td>
-								Stranger in the Woods
-							</td>
-							<td>
-								Tea with Lady Sapphire
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<img src="uploads/sitwcover_small.jpg">
-							</td>
-							<td>
-								<img src="uploads/saphirebook_small.jpg">
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<a href="https://itunes.apple.com/en/app/stranger-in-the-woods/id586206564?mt=8" target="_blank" class="app_button">App Store</a>
-								<a href="#starnger_play" class="play_button">Google Play</a>
-							</td>
+				<div id="authorly_made">
+					<a href="#next_book" class="next_book_btn">Next book</a>
+					<a href="#prev_book" class="prev_book_btn">Previous book</a>
+					<div id="carousel_viewport">
+						<div id="books_set_wrapper">
+							<!-- books_set div -->
+							<div class="books_set">
+								<div>
+									<img src="uploads/sitwcover_small.jpg" alt="Stranger in the Woods book cover">
+									<a href="https://itunes.apple.com/en/app/stranger-in-the-woods/id586206564?mt=8" target="_blank" class="apple_button">App Store</a>
+									<a href="https://play.google.com/store/apps/details?id=org.strangerinthewoods.application" class="google_button">Google Play</a>
+									<a href="http://www.amazon.com/Carl-R-Sams-Photography-Inc/dp/B00HMUITT0/ref=sr_1_1?s=mobile-apps&amp;ie=UTF8&amp;qid=1389740563&amp;sr=1-1&amp;keywords=stranger+in+the+woods" class="amazon_button">Amazon Store</a>
+								</div>
+								<div>
+									<img src="uploads/totallfoyle.jpg" alt="Too Tall Foyle book cover">
+								</div>
+								<div>
+									<img src="uploads/dennisthebull.jpg" alt="Dennis the Wild Bull book cover">
+									
+								</div>
+								<div>
+									<img src="uploads/captainnobeard.jpg" alt="Captain No Beard book cover">
+								</div>
+							</div>
+							<!-- end of books_set div -->
+							<!-- books_set div -->
+							<div class="books_set">
+								<div>
+									<img src="uploads/hubbardsheart.jpg" alt="Mr. Hubbard's Heart book cover">
+								</div>
+								<div>
+									<img src="uploads/heartneverlies.jpg" alt="My Heart Never Lies book cover">
+								</div>
+								<div>
+									<img src="uploads/QuestCover_small.jpg" alt="A Pirate's Quest book cover">
+								</div>
+								<div>
+									<img src="uploads/firstsnow.jpg" alt="First Snow in the Woods book cover">
+								</div>
+							</div>
+							<!-- end of books_set div -->
+							<!-- books_set div -->
+							<div class="books_set">
+								<div>
+									<img src="uploads/ferdinandfox.jpg" alt="Ferdinand Fox book cover">
 
-						</tr>
-						<tr class="row_separator"></tr>
-						<tr>
-							<td>
-								A Pirate's Quest
-							</td>
-							<td>
-								Plush and Blood: The Unstuffed
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<img src="uploads/QuestCover_small.jpg">
-							</td>
-							<td>
-								<img src="uploads/plush_and_blood.jpg">
-							</td>
-						</tr>
+								</div>
+								<div>
+									<img src="uploads/freddiethefrog.jpg" alt="Freddie the Frog comic cover">
 
-					</tbody>
-				</table>
+								</div>
+								<div>
+									<img src="uploads/saphirebook_small.jpg" alt="Tea with Lady Sapphire book cover">
+								</div>
+								<div>
+									<img src="uploads/babyblue.jpg" alt="Baby Blue book cover">
+								</div>
+							</div>
+							<!-- end of books_set div -->
+							<!-- books_set div -->
+							<div class="books_set">
+								<div>
+									<img src="uploads/littlegladys.jpg" alt="Little Gladys book cover">
+								</div>
+								<div>
+									<img src="uploads/wholivesinthesea.jpg" alt="Who Lives in the Sea book cover">
+								</div>
+								<div>
+									<img src="uploads/chocolatebar.jpg" alt="Chocolate Bar book cover">
+								</div>
+								<div>
+									<img src="uploads/hoppleplop.jpg" alt="The Hoppleplop book cover">
+								</div>
+							</div>
+							<!-- end of books_set div -->
+							<!-- books_set div -->
+							<div class="books_set">
+								<div>
+									<img src="uploads/red.jpg" alt="Red book cover">
+								</div>
+								<div>
+									<img src="uploads/powerofpenny.jpg" alt="The Power of Penny book cover">
+								</div>
+								<div>
+									<img src="uploads/jacktheburnboy.jpg" alt="Jack the Burn Boy book cover">
+								</div>
+								<div>
+									<img src="uploads/femaleforce.jpg" alt="Female Force comic cover">
+								</div>
+							</div>
+							<!-- end of books_set div -->
+							<!-- books_set div -->
+							<div class="books_set">
+								<div>
+									<img src="uploads/stormytheraincloud.jpg" alt="Stormy the Cloud book cover">
+								</div>
+								<div>
+									<img src="uploads/wherehaspollygone.jpg" alt="Where Has Polly Gone book cover">
+
+								</div>
+								<div>
+									<img src="uploads/theteeth.jpg" alt="The Teeth That Looked For A New Mouth book cover">
+								</div>
+								<div>
+									<img src="uploads/animalmotions.jpg" alt="Animal Motions book cover">
+								</div>
+							</div>
+							<!-- end of books_set div -->
+							<!-- books_set div -->
+							<div class="books_set">
+								<div>
+									<img src="uploads/captainsillyvoice.jpg" alt="Captain SillyVoice book cover">
+
+								</div>
+								<div>
+									<img src="uploads/calebsbirthdaywish.jpg" alt="Caleb's Birthday Wish book cover">
+								</div>
+								<div>
+									<img src="uploads/coyotesinthekitchen.jpg" alt="Coyotes in the Kitchen book cover">
+								</div>
+								<div>
+									<img src="uploads/santassugar.jpg" alt="Santa's Sugar book cover">
+								</div>
+							</div>
+							<!-- end of books_set div -->
+							<!-- books_set div -->
+							<div class="books_set">
+								<div>
+									<img src="uploads/katyperry.jpg" alt="Katy Perry comic cover">
+								</div>
+								<div>
+									<img src="uploads/onedirection.jpg" alt="One Direction comic cover">
+								</div>
+								<div>
+									<img src="uploads/doriangray.jpg" alt="Dorian Gray comic cover">
+								</div>
+								<div>
+									<img src="uploads/headlocked.jpg" alt="Headlocked comic cover">
+								</div>
+							</div>
+							<!-- end of books_set div -->
+						</div>
+					</div>
+				</div>
 				<span class="cleaner"></span>
-				</article>
+			</article>
+			<article>
+				<h2>Our Team</h2>
+				<div id="our_team">
+					<div class="team_photo first_in_a_row">
+						<a href="mailto:chris@authorly.com" class="img_container">
+							<img src="images/team_chris.jpg" alt="Chris Whitman's photo">
+							<span class="our_team_hover"></span>
+						</a>
+						<span class="team_name" >Chris Whitman</span><br>Founder &amp; CEO
+					</div>
+					<div class="team_photo">
+						<a href="mailto:brad@authorly.com" class="img_container">
+							<img src="images/team_brad.jpg" alt="Brad Seraphin's photo">
+							<span class="our_team_hover"></span>
+						</a>
+						<span class="team_name" >Brad Seraphin</span><br>CMO
+					</div>
+					<span class="team_separator"></span>
+					<div class="team_photo">
+						<a href="mailto:waseem@authorly.com" class="img_container">
+							<img src="images/team_waseem.jpg" alt="Waseem Ahmad's photo">
+							<span class="our_team_hover"></span>
+						</a>
+						<span class="team_name" >Waseem Ahmad</span><br>CTO
+					</div>
+					<div class="team_photo first_in_a_row">
+						<a href="mailto:eaven@authorly.com" class="img_container">
+							<img src="images/team_eaven.jpg" alt="Eaven Portillo's photo">
+							<span class="our_team_hover"></span>
+						</a>
+						<span class="team_name" >Eaven Portillo</span><br>Director of App Development
+					</div>
+					<span class="team_separator"></span>
+					<div class="team_photo">
+						<a href="mailto:dhoover@authorly.com" class="img_container">
+							<img src="images/team_david.jpg" alt="David Hoover's photo">
+							<span class="our_team_hover"></span>
+						</a>
+						<span class="team_name" >David Hoover</span><br>Director of Operations
+					</div>
+					<div class="team_photo">
+						<a href="mailto:jessica@authorly.com" class="img_container">
+							<img src="images/team_jessica.jpg" alt="Jessica Saab's photo">
+							<span class="our_team_hover"></span>
+						</a>
+						<span class="team_name">Jessica Saab</span><br>Sales / Marketing
+					</div>
+					<div class="team_photo first_in_a_row">
+						<a href="mailto:devika@authorly.com" class="img_container">
+							<img src="images/team_devika.jpg" alt="Devika Soni's photo">
+							<span class="our_team_hover"></span>
+						</a>
+						<span class="team_name">Devika Soni</span><br>Sales / Marketing
+					</div>
+					<div class="team_photo">
+						<a href="mailto:me@dira.ro" class="img_container">
+							<img src="images/team_irina.jpg" alt="Devika Soni's photo">
+							<span class="our_team_hover"></span>
+						</a>
+						<span class="team_name">Irina Dumitrascu</span><br>Sr. Web Developer
+					</div>
+					<span class="cleaner"></span>
+				</div>
+			</article>
 			</div>
 			<div class="column rcol">
 			<article>
 				<h2 class="superH">Contact Us</h2>
 				<p>
-					Authorly is a member of <a href="http://www.startupminds.com" target="_blank">Startup Minds</a>, a Los Angeles-based accelerator. We're always open for a chat with passionate writers, publishers, editors, and other professionals in the book industry.
+					We're always open for a chat with passionate writers, publishers, editors, and other professionals in the book industry.
 				</p>
 				<div class="contact_us">
 					<h3>Email:</h3>
@@ -133,7 +301,7 @@
 					<span class="invalid_form"></span>
 					<input type="email" id="email" name="email" placeholder="Your e-mail address" required>
 					<input type="text" id="valid" name="valid">
-					<input id="send_message" type="submit" value="Send">
+					<input id="send_message" type="submit" value="send">
 					<p id="invalid_text"></p>
 					<p id="invalid_email"></p>
 				</form>
@@ -142,11 +310,13 @@
 			<div class="cleaner"></div>
 		</div>
 	</div>
+</div>
+</div>
 <footer>
 	<ul id="footer_nav">
-	<li><a href="blog/index.php" target="_self">Blog</a>&nbsp;|&nbsp;</li>
+	<li><a href="blog/index.php" target="_self">Blog</a>&nbsp;|
 	<li><a href="about.html" target="_self">Contact</a>&nbsp;|&nbsp;</li>
-	<li><a href="faq.html" target="_self">FAQ</a>&nbsp;|&nbsp;</li>
+	<li><a href="http://help.authorly.com" target="_blank">Help Docs</a>&nbsp;|&nbsp;</li>
 	<li><a href="press-kit.html" target="_self">Press</a>&nbsp;|&nbsp;</li>
 	<li><a href="tos.html" target="_self">Terms of Service</a>&nbsp;|&nbsp;</li>
 	<li><a href="privacy_policy.html" target="_self">Privacy Policy</a></li>
@@ -165,8 +335,7 @@
 <script type="text/javascript" src="js/facebook.js"></script>
 <script type="text/javascript" src="js/snapengage.js"></script>
 <script type="text/javascript">
-   window.kissmetrics.trackEvent('Visited About page');
+  window.kissmetrics.trackEvent('Visited About page');
 </script>
-
 </body>
 </html>
