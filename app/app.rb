@@ -140,6 +140,7 @@ post '/unbounce.json' do
   if u.save_with_password
     resp = { :name => u.name, :email => u.email, :id => u.id }
     Resque.enqueue(MailerQueue, 'UserMailer', 'email_confirmation', u.id)
+    KMTS.record(u.email, "Signed Up", :referrer => params['page_url'], :page_name => params['page_name'])
   else
     resp = u.errors.messages
     # Use this flag in XHR request for error handling.
