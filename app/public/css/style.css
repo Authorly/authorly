@@ -1273,7 +1273,7 @@ margin-left: -216px;
 }
 
 .team_name {
-	font-size: 1.3em;
+	font-size: 1.1em;
 	text-transform: capitalize;
 	color:#335278;
 }
@@ -1954,3 +1954,6 @@ left: 35px;
 }
 
  }
+.title {
+	font-size: 1em;
+}
