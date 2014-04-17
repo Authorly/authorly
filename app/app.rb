@@ -114,6 +114,22 @@ post '/users.json' do
   resp.to_json
 end
 
+post '/contact.json' do
+  content_type :json
+  logger.info "params #{params.inspect}"
+
+  resp = {}
+  if (params['name'].to_s.empty? || params['email'].to_s.empty? || params['message'].to_s.empty?)
+    resp[:error] = 'oops'
+  else
+    Resque.enqueue(MailerQueue, 'UserMailer', 'contact_notification', params['name'], params['email'], params['message'])
+    resp[:status] = 'OK'
+  end
+
+  status 200
+  resp.to_json
+end
+
 post '/kmetrics.json' do
   content_type :json
   logger.info "params: #{params.inspect}"

@@ -72,6 +72,21 @@ $(".faq li, .faq_backTop").click(function(e){
 /* determines color of info text */
 var invalid_col = "#d6220a", valid_col = "#468c13";
 
+$('#send_message').click(function (e) {
+  e.preventDefault();
+  var form_parent = $(this).parent();
+  $.post('/contact.json', form_parent.serialize(),
+  'json').done(function (data) {
+    if (data['error'] == 'oops') {
+      window.toastr.options = { 'positionClass': 'toast-top-full-width' };
+      window.toastr['error']('', 'Please fill in all the field properly.');
+    } else {
+      window.toastr.options = { 'positionClass': 'toast-top-full-width' };
+      window.toastr['success']('', 'Thank you! We have received your email.');
+    }
+  });
+});
+
 
 /* contact form validation function */
 $("#sign-up-submit").click(function(e){
